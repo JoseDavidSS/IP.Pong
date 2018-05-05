@@ -2,6 +2,30 @@ import pygame
 from pygame.locals import *
 from tkinter import *
 
+# Clase del juego e interaz
+class Juego:
+    # Atributos
+    def __init__(self, matriz):
+        self.matriz = matriz
+    # Sets y Gets
+    def getMatriz(self):
+        return self.matriz
+    # Métodos
+    def menu_principal(self):
+        ventana = Tk()
+        ventana.title("Menu Principal")
+        ventana.minsize(1080, 720)
+        ventana.resizable(width=NO, height=NO)
+
+        # Crear Canvas
+        canvas = Canvas(ventana, width=1080, height=720, bg="#40FF00")
+        canvas.place(x=-2, y=-2)
+        canvas.pack()
+
+        ventana.mainloop()  # Final del programa
+Instancia_Juego = Juego("matriz")
+Instancia_Juego. menu_principal()
+
 class Barras:
     def __init__(self, largo, direccion_sobrebola, cpu, posicion, puntos, velocidad):
         self.largo = largo
@@ -45,13 +69,3 @@ class Bola:
     def setUltimo_Golpe(self, nuevo):
         self.ultimo_golpe = nuevo
 
-pygame.init()
-ventana = pygame.display.set_mode((400, 300))
-pygame.display.set_caption("PONG")
-
-while True:
-    for evento in pygame.event.get():
-        if evento.type == QUIT:
-            pygame.quit()
-            sys.exit()
-    pygame.display.update()
