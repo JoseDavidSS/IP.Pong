@@ -1,2 +1,2 @@
 # Pong
-Cree las clases de bola y las barras, les asigne atributos, pero todavia no los metodos
+Mae, creo que deberiamos crear una clase mas, una para el menu y otra para el juego en si
