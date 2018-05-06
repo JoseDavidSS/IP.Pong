@@ -12,6 +12,8 @@ class Juego:
         return self.matriz
     # Métodos
     def menu_principal(self):
+
+        # Crear Ventana
         ventana = Tk()
         ventana.title("Menu Principal")
         ventana.minsize(1080, 720)
@@ -22,7 +24,40 @@ class Juego:
         canvas.place(x=-2, y=-2)
         canvas.pack()
 
-        ventana.mainloop()  # Final del programa
+        def ventana2():
+            ventana.destroy()
+            Instancia_Juego.ventana_juego()
+
+        # Boton animacion
+        Juego_boton = Button(canvas,
+                                 text="Jugar",
+                                 font=("Arial", 20),
+                                 width=10,
+                                 bg="yellow",
+                                 command = ventana2)
+        Juego_boton.place(x=800, y=600)
+
+        # Fin del loop
+        ventana.mainloop()
+
+    def ventana_juego(self):
+        ColorUno = (0, 140, 60)
+        ColorDos = pygame.Color(255, 120, 9)
+        pygame.init()
+        ventana = pygame.display.set_mode((400, 300))
+        pygame.display.set_caption("Hola Mundo")
+        clock = pygame.time.Clock()
+
+        crashed = False
+        while not crashed:
+            ventana.fill(ColorDos)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    crashed = True
+                print(event)
+            pygame.display.update()
+            clock.tick(60)
+
 Instancia_Juego = Juego("matriz")
 Instancia_Juego. menu_principal()
 
