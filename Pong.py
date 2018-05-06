@@ -1,6 +1,4 @@
 import pygame
-<<<<<<< HEAD
-=======
 from pygame.locals import *
 from tkinter import *
 
@@ -105,6 +103,3 @@ class Bola:
         self.velocidad = nuevo
     def setUltimo_Golpe(self, nuevo):
         self.ultimo_golpe = nuevo
->>>>>>> 62e07e5d025b74a43febbbdde7c55c03eb1c11fd
-
-Hola = True
