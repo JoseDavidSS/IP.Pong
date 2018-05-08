@@ -1,15 +1,17 @@
 import pygame
-from pygame.locals import *
 from tkinter import *
 
 # Clase del juego e interaz
 class Juego:
+
     # Atributos
     def __init__(self, matriz):
         self.matriz = matriz
+
     # Sets y Gets
     def getMatriz(self):
         return self.matriz
+
     # Métodos
     def menu_principal(self):
 
@@ -24,6 +26,7 @@ class Juego:
         canvas.place(x=-2, y=-2)
         canvas.pack()
 
+        #Funciones que llaman a los otros métodos de la clase con instancias
         def ventana_un_jugador_aux():
             ventana.destroy()
             Instancia_Juego.ventana_un_jugador()
@@ -32,23 +35,45 @@ class Juego:
             ventana.withdraw()
             Instancia_Juego.ventana_dos_jugadores()
 
+        def ventana_instrucciones_aux():
+            ventana.withdraw()
+            Instancia_Juego.ventana_instrucciones()
+
+
+        # Boton para iniciar partida de un jugador
+        un_jugador = Button(canvas,
+                                 text="Un jugador",
+                                 font=("Arial", 20),
+                                 width=14,
+                                 bg="white",
+                                 command = ventana_un_jugador_aux)
+        un_jugador.place(x=425, y=300)
+
         # Boton para iniciar partida de dos jugadores
         dos_jugadores = Button(canvas,
                                  text="Dos Jugadores",
                                  font=("Arial", 20),
-                                 width=10,
-                                 bg="blue",
+                               width=14,
+                                 bg="white",
                                  command = ventana_dos_jugadores_aux)
-        dos_jugadores.place(x=800, y=600)
+        dos_jugadores.place(x=425, y=400)
 
-        # Boton animacion
-        un_jugador = Button(canvas,
-                                 text="Un jugador",
+        # Boton para ir a ventana de instrucciones
+        bt_instrucciones = Button(canvas,
+                                 text="Instrucciones",
                                  font=("Arial", 20),
-                                 width=10,
-                                 bg="yellow",
-                                 command = ventana_un_jugador_aux)
-        un_jugador.place(x=800, y=300)
+                                width=14,
+                                 bg="white",
+                                 command = ventana_instrucciones_aux)
+        bt_instrucciones.place(x=425, y=600)
+
+        #Labels
+        titulo = Label(canvas,
+                                    text="PONG",
+                                    font=("Arial",78),
+                                    bg="black",
+                                    fg="white")
+        titulo.place(x=390,y=15)
 
         # Fin del loop
         ventana.mainloop()
@@ -84,13 +109,14 @@ class Juego:
         canvas_dos_jugadores.place(x=-2, y=-2)
         canvas_dos_jugadores.pack()
 
-        def volver ():
+        def volver():
             ventana_dos_jugadores.destroy()
             Instancia_Juego.menu_principal()
 
         def modo_singles_aux():
             ventana_dos_jugadores.destroy()
             Instancia_Juego.modo_singles()
+
         def modo_doubles_aux():
             ventana_dos_jugadores.destroy()
             Instancia_Juego.modo_doubles()
@@ -98,29 +124,41 @@ class Juego:
         #Botón para volver al menú principal
         atras = Button(canvas_dos_jugadores,
                                  text="Volver al Menú Principal",
-                                 font=("Arial", 20),
-                                 width=10,
-                                 bg="blue",
+                                 font=("Arial", 16),
+                                 bg="white",
                                  command=volver)
-        atras.place(x=800, y=600)
+        atras.place(x=820, y=25)
 
         #Botón para jugar modo singles
         singles = Button(canvas_dos_jugadores,
                                  text="Jugar modo Singles",
                                  font=("Arial", 20),
-                                 width=10,
-                                 bg="blue",
+                                 bg="white",
                                  command=modo_singles_aux)
-        singles.place(x=400, y=600)
+        singles.place(x=420, y=300)
 
         #Botón para jugar modo doubles
         doubles = Button(canvas_dos_jugadores,
                                  text="Jugar modo Doubles",
                                  font=("Arial", 20),
-                                 width=10,
-                                 bg="blue",
+                                 bg="white",
                                  command=modo_doubles_aux)
-        doubles.place(x=400, y=300)
+        doubles.place(x=420, y=600)
+
+        #Labels de descripciones de modos de juego
+        descripcion_singles = Label(canvas_dos_jugadores,
+                                    text="Modo Singles es un un tipo de juego en el que participan\n dos jugadores, y cada jugador controla una paleta",
+                                    font=("Arial",20),
+                                    bg="black",
+                                    fg="white")
+        descripcion_singles.place(x=200,y=200)
+
+        descripcion_doubles = Label(canvas_dos_jugadores,
+                                    text="Modo Doubles: a diferencia del Modo Singles, este es un un tipo de juego\n en el que participan dos jugadores, y cada jugador controla dos paletas",
+                                    font=("Arial",20),
+                                    bg="black",
+                                    fg="white")
+        descripcion_doubles.place(x=95,y=500)
 
     def modo_singles(self):
         ColorUno = (0, 140, 60)
@@ -159,6 +197,46 @@ class Juego:
                 print(event)
             pygame.display.update()
             clock.tick(60)
+
+    def ventana_instrucciones(self):
+        # Crear Ventana
+        ventana_instrucciones = Tk()
+        ventana_instrucciones.title("Intrucciones")
+        ventana_instrucciones.minsize(1080, 720)
+        ventana_instrucciones.resizable(width=NO, height=NO)
+
+        # Crear Canvas
+        canvas_instrucciones = Canvas(ventana_instrucciones, width=1080, height=720, bg="black")
+        canvas_instrucciones.place(x=-2, y=-2)
+        canvas_instrucciones.pack()
+
+        def volver():
+            ventana_instrucciones.destroy()
+            Instancia_Juego.menu_principal()
+
+        #Botón para volver al menú principal
+        atras = Button(canvas_instrucciones,
+                                 text="Volver al Menú Principal",
+                                 font=("Arial", 16),
+                                 bg="white",
+                                 command=volver)
+        atras.place(x=820, y=25)
+
+        #Labels de descripciones de modos de juego
+        descripcion_juego = Label(canvas_instrucciones,
+                                    text="Descripción: \n \n"
+                                         "Pong es un juego de deportes en dos dimensiones que simula un tenis de mesa. \n"
+                                         "El jugador controla en el juego una paleta moviéndola verticalmente en la parte izquierda de la pantalla,\n"
+                                         "y puede competir tanto contra un oponente controlado por computadora, como con otro jugador\n"
+                                         "humano que controla una segunda paleta en la parte opuesta. Los jugadores pueden usar las paletas\n"
+                                         "para pegarle a la pelota hacia un lado u otro. El objetivo consiste en que uno de los jugadores consiga \n"
+                                         "más puntos que el oponente al finalizar el juego. Estos puntos se obtienen cuando el jugador adversario \n"
+                                         "falla al devolver la pelota.",
+                                    font=("Arial",17),
+                                    bg="black",
+                                    fg="white",
+                                    justify="left")
+        descripcion_juego.place(x=20,y=90)
 
 #Clase de Barras
 class Barras:
