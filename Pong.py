@@ -20,27 +20,40 @@ class Juego:
         ventana.resizable(width=NO, height=NO)
 
         # Crear Canvas
-        canvas = Canvas(ventana, width=1080, height=720, bg="#40FF00")
+        canvas = Canvas(ventana, width=1080, height=720, bg="black")
         canvas.place(x=-2, y=-2)
         canvas.pack()
 
-        def ventana2():
+        def ventana_un_jugador_aux():
             ventana.destroy()
-            Instancia_Juego.ventana_juego()
+            Instancia_Juego.ventana_un_jugador()
+
+        def ventana_dos_jugadores_aux():
+            ventana.withdraw()
+            Instancia_Juego.ventana_dos_jugadores()
+
+        # Boton para iniciar partida de dos jugadores
+        dos_jugadores = Button(canvas,
+                                 text="Dos Jugadores",
+                                 font=("Arial", 20),
+                                 width=10,
+                                 bg="blue",
+                                 command = ventana_dos_jugadores_aux)
+        dos_jugadores.place(x=800, y=600)
 
         # Boton animacion
-        Juego_boton = Button(canvas,
-                                 text="Jugar",
+        un_jugador = Button(canvas,
+                                 text="Un jugador",
                                  font=("Arial", 20),
                                  width=10,
                                  bg="yellow",
-                                 command = ventana2)
-        Juego_boton.place(x=800, y=600)
+                                 command = ventana_un_jugador_aux)
+        un_jugador.place(x=800, y=300)
 
         # Fin del loop
         ventana.mainloop()
 
-    def ventana_juego(self):
+    def ventana_un_jugador(self):
         ColorUno = (0, 140, 60)
         ColorDos = pygame.Color(255, 120, 9)
         pygame.init()
@@ -54,13 +67,100 @@ class Juego:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     crashed = True
+                    pygame.quit()
                 print(event)
             pygame.display.update()
             clock.tick(60)
 
-Instancia_Juego = Juego("matriz")
-Instancia_Juego. menu_principal()
+    def ventana_dos_jugadores(self):
+        # Crear Ventana
+        ventana_dos_jugadores = Tk()
+        ventana_dos_jugadores.title("Dos Jugadores")
+        ventana_dos_jugadores.minsize(1080, 720)
+        ventana_dos_jugadores.resizable(width=NO, height=NO)
 
+        # Crear Canvas
+        canvas_dos_jugadores = Canvas(ventana_dos_jugadores, width=1080, height=720, bg="black")
+        canvas_dos_jugadores.place(x=-2, y=-2)
+        canvas_dos_jugadores.pack()
+
+        def volver ():
+            ventana_dos_jugadores.destroy()
+            Instancia_Juego.menu_principal()
+
+        def modo_singles_aux():
+            ventana_dos_jugadores.destroy()
+            Instancia_Juego.modo_singles()
+        def modo_doubles_aux():
+            ventana_dos_jugadores.destroy()
+            Instancia_Juego.modo_doubles()
+
+        #Botón para volver al menú principal
+        atras = Button(canvas_dos_jugadores,
+                                 text="Volver al Menú Principal",
+                                 font=("Arial", 20),
+                                 width=10,
+                                 bg="blue",
+                                 command=volver)
+        atras.place(x=800, y=600)
+
+        #Botón para jugar modo singles
+        singles = Button(canvas_dos_jugadores,
+                                 text="Jugar modo Singles",
+                                 font=("Arial", 20),
+                                 width=10,
+                                 bg="blue",
+                                 command=modo_singles_aux)
+        singles.place(x=400, y=600)
+
+        #Botón para jugar modo doubles
+        doubles = Button(canvas_dos_jugadores,
+                                 text="Jugar modo Doubles",
+                                 font=("Arial", 20),
+                                 width=10,
+                                 bg="blue",
+                                 command=modo_doubles_aux)
+        doubles.place(x=400, y=300)
+
+    def modo_singles(self):
+        ColorUno = (0, 140, 60)
+        ColorDos = pygame.Color(255, 120, 9)
+        pygame.init()
+        ventana_singles = pygame.display.set_mode((400, 300))
+        pygame.display.set_caption("Modo Singles")
+        clock = pygame.time.Clock()
+
+        self.crashed = False
+        while not self.crashed:
+            ventana_singles.fill(ColorDos)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.crashed = True
+                    pygame.quit()
+                print(event)
+            pygame.display.update()
+            clock.tick(60)
+
+    def modo_doubles(self):
+        ColorUno = (0, 140, 60)
+        ColorDos = pygame.Color(255, 120, 9)
+        pygame.init()
+        ventana = pygame.display.set_mode((400, 300))
+        pygame.display.set_caption("Modo Doubles")
+        clock = pygame.time.Clock()
+
+        crashed = False
+        while not crashed:
+            ventana.fill(ColorDos)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    crashed = True
+                    pygame.quit()
+                print(event)
+            pygame.display.update()
+            clock.tick(60)
+
+#Clase de Barras
 class Barras:
     def __init__(self, largo, direccion_sobrebola, cpu, posicion, puntos, velocidad):
         self.largo = largo
@@ -86,6 +186,7 @@ class Barras:
     def setVelocidad(self, nuevo):
         self.velocidad = nuevo
 
+#Clase de Bola
 class Bola:
     def __init__(self, posicion, velocidad, ultimo_golpe):
         self.posicion = posicion
@@ -103,3 +204,6 @@ class Bola:
         self.velocidad = nuevo
     def setUltimo_Golpe(self, nuevo):
         self.ultimo_golpe = nuevo
+
+Instancia_Juego = Juego("matriz")
+Instancia_Juego. menu_principal()
