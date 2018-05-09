@@ -222,7 +222,7 @@ class Juego:
                                  command=volver)
         atras.place(x=820, y=25)
 
-        #Labels de descripciones de modos de juego
+        #Labels de descripcion de Juego y sus Controles
         descripcion_juego = Label(canvas_instrucciones,
                                     text="Descripción: \n \n"
                                          "Pong es un juego de deportes en dos dimensiones que simula un tenis de mesa. \n"
@@ -237,6 +237,21 @@ class Juego:
                                     fg="white",
                                     justify="left")
         descripcion_juego.place(x=20,y=90)
+
+        descripcion_controles = Label(canvas_instrucciones,
+                                    text="Controles: \n \n"
+                                         "- Para los modos de un jugador, el usuario va a pode mover su barra para arriba y para abajo con\n"
+                                         "Tecla W y Tecla S respectivamente y así no dejar que la bola entre a la zona que se está defendiendo,\n"
+                                         "para intentar que el adversario no anote ni acumule puntos, y poder ganar.\n"
+                                         "\n- Para los modos de dos jugadores, el jugador de la izquierda moverá su barra para arriba y para abajo\n"
+                                         "con las teclas Tecla  W y  Tecla S respectivamente. Por otro lado, el segundo jugador usará las Flecha\n"
+                                         "Arriba y Flecha Abajo respectivamente para mover arriba y abajo su barra posicionada al lado derecho\n"
+                                         "de la pantalla",
+                                    font=("Arial",17),
+                                    bg="black",
+                                    fg="white",
+                                    justify="left")
+        descripcion_controles.place(x=20,y=400)
 
 #Clase de Barras
 class Barras:
