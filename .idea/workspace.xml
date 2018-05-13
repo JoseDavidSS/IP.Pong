@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b301d4b-e5ff-41ba-9eb0-6fc30c86160e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Pruebas.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pruebas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pong.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pong.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,25 +14,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Pong.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Pong.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Pong.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pruebas.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Pruebas.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9442">
-              <caret line="754" column="9" lean-forward="true" selection-start-line="754" selection-start-column="9" selection-end-line="754" selection-end-column="9" />
+            <state relative-caret-position="829">
+              <caret line="373" column="27" selection-start-line="373" selection-start-column="27" selection-end-line="373" selection-end-column="27" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
+                <element signature="e#498#643#0" />
+                <element signature="e#680#9959#0" />
+                <element signature="e#10079#13867#0" />
+                <element signature="e#13887#29296#0" />
               </folding>
             </state>
           </provider>
@@ -41,9 +34,7 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="68">
-                <caret line="4" selection-start-line="4" selection-end-line="4" />
-              </first_editor>
+              <first_editor />
               <second_editor />
             </state>
           </provider>
@@ -73,6 +64,9 @@
     <option name="y" value="75" />
     <option name="width" value="795" />
     <option name="height" value="775" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -204,12 +198,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32965517" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32880846" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32827586" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31448275" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -269,21 +263,14 @@
     <MESSAGE value="Se elimina head y linea con datos que no dejan funcionar el programa" />
     <option name="LAST_COMMIT_MESSAGE" value="Se elimina head y linea con datos que no dejan funcionar el programa" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/Juego prueba.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2533">
-          <caret line="149" column="42" selection-start-line="149" selection-start-column="42" selection-end-line="149" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/juegovh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Juego prueba.py" />
+    <entry file="file://$USER_HOME$/Desktop/juegovh.py" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -299,25 +286,17 @@
         <state relative-caret-position="17">
           <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#498#643#0" />
+            <element signature="e#680#9959#0" />
+            <element signature="e#10079#13867#0" />
+            <element signature="e#13887#29296#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/Juego prueba.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2516">
-          <caret line="149" column="42" selection-start-line="149" selection-start-column="42" selection-end-line="149" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/juegovh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Juego prueba.py" />
+    <entry file="file://$USER_HOME$/Desktop/juegovh.py" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -334,25 +313,17 @@
         <state relative-caret-position="17">
           <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#498#643#0" />
+            <element signature="e#680#9959#0" />
+            <element signature="e#10079#13867#0" />
+            <element signature="e#13887#29296#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/Juego prueba.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2533">
-          <caret line="149" column="42" lean-forward="true" selection-start-line="149" selection-start-column="42" selection-end-line="149" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/juegovh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Juego prueba.py" />
+    <entry file="file://$USER_HOME$/Desktop/juegovh.py" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -369,7 +340,11 @@
         <state relative-caret-position="1615">
           <caret line="97" column="35" selection-start-line="68" selection-start-column="6" selection-end-line="97" selection-end-column="35" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#498#643#0" />
+            <element signature="e#680#9959#0" />
+            <element signature="e#10079#13867#0" />
+            <element signature="e#13887#29296#0" />
           </folding>
         </state>
       </provider>
@@ -390,7 +365,11 @@
         <state relative-caret-position="1649">
           <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#498#643#0" />
+            <element signature="e#680#9959#0" />
+            <element signature="e#10079#13867#0" />
+            <element signature="e#13887#29296#0" />
           </folding>
         </state>
       </provider>
@@ -408,7 +387,11 @@
         <state relative-caret-position="-3">
           <caret line="88" column="29" lean-forward="true" selection-start-line="88" selection-start-column="29" selection-end-line="88" selection-end-column="29" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#498#643#0" />
+            <element signature="e#680#9959#0" />
+            <element signature="e#10079#13867#0" />
+            <element signature="e#13887#29296#0" />
           </folding>
         </state>
       </provider>
@@ -418,25 +401,17 @@
         <state relative-caret-position="238">
           <caret line="69" column="28" lean-forward="true" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#498#643#0" />
+            <element signature="e#680#9959#0" />
+            <element signature="e#10079#13867#0" />
+            <element signature="e#13887#29296#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/juegovh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Juego prueba.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="807">
-          <caret line="166" column="43" lean-forward="true" selection-start-line="166" selection-start-column="43" selection-end-line="166" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/juegovh.py" />
+    <entry file="file://$USER_HOME$/Desktop/Juego prueba.py" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -452,31 +427,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Pruebas.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="792" column="21" selection-end-line="792" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <element signature="e#497#642#0" />
-            <element signature="e#551#642#0" />
-            <element signature="e#9992#10005#0" />
-            <element signature="e#10046#10060#0" />
-            <element signature="e#10198#10218#0" />
-            <element signature="e#10255#10276#0" />
-            <element signature="e#10319#10340#0" />
-            <element signature="e#10384#10406#0" />
-            <element signature="e#13889#28903#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Pruebas.py" />
     <entry file="file://$PROJECT_DIR$/Pong.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
           <caret line="791" column="29" selection-start-line="791" selection-start-column="29" selection-end-line="791" selection-end-column="29" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#498#643#0" />
+            <element signature="e#680#9959#0" />
+            <element signature="e#10079#13867#0" />
+            <element signature="e#13887#29296#0" />
           </folding>
         </state>
       </provider>
@@ -486,7 +447,11 @@
         <state relative-caret-position="952">
           <caret line="56" column="28" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#498#643#0" />
+            <element signature="e#680#9959#0" />
+            <element signature="e#10079#13867#0" />
+            <element signature="e#13887#29296#0" />
           </folding>
         </state>
       </provider>
@@ -508,7 +473,11 @@
         <state relative-caret-position="17">
           <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#498#643#0" />
+            <element signature="e#680#9959#0" />
+            <element signature="e#10079#13867#0" />
+            <element signature="e#13887#29296#0" />
           </folding>
         </state>
       </provider>
@@ -531,7 +500,11 @@
         <state relative-caret-position="17">
           <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#498#643#0" />
+            <element signature="e#680#9959#0" />
+            <element signature="e#10079#13867#0" />
+            <element signature="e#13887#29296#0" />
           </folding>
         </state>
       </provider>
@@ -554,7 +527,11 @@
         <state relative-caret-position="1615">
           <caret line="97" column="35" selection-start-line="68" selection-start-column="6" selection-end-line="97" selection-end-column="35" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#498#643#0" />
+            <element signature="e#680#9959#0" />
+            <element signature="e#10079#13867#0" />
+            <element signature="e#13887#29296#0" />
           </folding>
         </state>
       </provider>
@@ -575,7 +552,11 @@
         <state relative-caret-position="1649">
           <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#498#643#0" />
+            <element signature="e#680#9959#0" />
+            <element signature="e#10079#13867#0" />
+            <element signature="e#13887#29296#0" />
           </folding>
         </state>
       </provider>
@@ -593,7 +574,11 @@
         <state relative-caret-position="-3">
           <caret line="88" column="29" lean-forward="true" selection-start-line="88" selection-start-column="29" selection-end-line="88" selection-end-column="29" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#498#643#0" />
+            <element signature="e#680#9959#0" />
+            <element signature="e#10079#13867#0" />
+            <element signature="e#13887#29296#0" />
           </folding>
         </state>
       </provider>
@@ -603,7 +588,11 @@
         <state relative-caret-position="238">
           <caret line="69" column="28" lean-forward="true" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#498#643#0" />
+            <element signature="e#680#9959#0" />
+            <element signature="e#10079#13867#0" />
+            <element signature="e#13887#29296#0" />
           </folding>
         </state>
       </provider>
@@ -611,10 +600,14 @@
     <entry file="file://$USER_HOME$/Desktop/juegovh.py" />
     <entry file="file://$PROJECT_DIR$/Pong.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
+        <state relative-caret-position="829">
+          <caret line="373" column="27" selection-start-line="373" selection-start-column="27" selection-end-line="373" selection-end-column="27" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#498#643#0" />
+            <element signature="e#680#9959#0" />
+            <element signature="e#10079#13867#0" />
+            <element signature="e#13887#29296#0" />
           </folding>
         </state>
       </provider>
@@ -622,9 +615,7 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="68">
-            <caret line="4" selection-start-line="4" selection-end-line="4" />
-          </first_editor>
+          <first_editor />
           <second_editor />
         </state>
       </provider>
@@ -635,15 +626,6 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/Juego prueba.py" />
-    <entry file="file://$PROJECT_DIR$/Pruebas.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9442">
-          <caret line="754" column="9" lean-forward="true" selection-start-line="754" selection-start-column="9" selection-end-line="754" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Pruebas.py" />
   </component>
 </project>
