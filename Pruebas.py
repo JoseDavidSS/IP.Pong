@@ -6,7 +6,7 @@ cerrar = False
 filas = 25
 columnas = 40
 
-largo_pantalla = 720
+largo_pantalla = 1080
 ancho_pantalla = 720
 
 largo_cuadro = largo_pantalla // columnas
@@ -16,7 +16,7 @@ negro = (0, 0, 0)
 blanco = (255, 255, 255)
 
 nivel = 1
-barras = 2
+barras = 1
 
 reloj = pygame.time.Clock()
 Fps = 20
@@ -294,7 +294,10 @@ class Bola:
                 juego.hacer_matriz()
                 pos = [11, 19]
                 bola.setPosicion(pos)
-                time.sleep(0.3)
+                ganador = barra2.getNiveles()
+                ganador += 1
+                barra2.setNiveles(ganador)
+                time.sleep(0.5)
             else:
                 pygame.mixer.music.load("Anota.wav")
                 pygame.mixer.music.play()
@@ -320,7 +323,10 @@ class Bola:
                 juego.hacer_matriz()
                 pos = [11, 19]
                 bola.setPosicion(pos)
-                time.sleep(0.3)
+                ganador = barra2.getNiveles()
+                ganador += 1
+                barra2.setNiveles(ganador)
+                time.sleep(0.5)
             else:
                 pygame.mixer.music.load("Anota.wav")
                 pygame.mixer.music.play()
@@ -341,13 +347,18 @@ class Bola:
             juego.setMatriz(M)
 
 class Barras:
-    def __init__(self, cpu, puntos):
+    def __init__(self, cpu, puntos, niveles):
         self.cpu = cpu
         self.puntos = puntos
+        self.niveles = niveles
     def getPuntos(self):
         return self.puntos
+    def getNiveles(self):
+        return self.niveles
     def setPuntos(self, nuevo):
         self.puntos = nuevo
+    def setNiveles(self, nuevo):
+        self.niveles = nuevo
     def moverse(self, direccion):
         M = juego.getMatriz()
         i = 0
@@ -716,8 +727,8 @@ class Barras:
 
 juego = Juego([])
 juego.hacer_matriz()
-barra1 = Barras(0, 0)
-barra2 = Barras(0, 0)
+barra1 = Barras(0, 0, 0)
+barra2 = Barras(0, 0, 0)
 bola = Bola()
 
 
@@ -778,3 +789,5 @@ while not cerrar:
         n += 1
         m = 0
     pygame.display.update()
+    if barra1.getNiveles() == 3 or barra2.getNiveles() == 3:
+        cerrar = True
