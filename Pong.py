@@ -27,14 +27,17 @@ class Juego:
         canvas.pack()
 
         #Funciones que llaman a los otros métodos de la clase con instancias
+        #Función auxiliar que detruye ventana y llama con Instancia a ventana_un_jugador
         def ventana_un_jugador_aux():
             ventana.destroy()
             Instancia_Juego.ventana_un_jugador()
 
+        # Función auxiliar que detruye ventana y llama con Instancia a ventana_dos_jugador
         def ventana_dos_jugadores_aux():
             ventana.withdraw()
             Instancia_Juego.ventana_dos_jugadores()
 
+        # Función auxiliar que detruye ventana y llama con Instancia a ventana_instrucciones_jugador
         def ventana_instrucciones_aux():
             ventana.withdraw()
             Instancia_Juego.ventana_instrucciones()
@@ -78,6 +81,7 @@ class Juego:
         # Fin del loop
         ventana.mainloop()
 
+    # Función que crea la ventana en pygame de un jugador conta la cpu
     def ventana_un_jugador(self):
         ColorUno = (0, 140, 60)
         ColorDos = pygame.Color(255, 120, 9)
@@ -109,14 +113,17 @@ class Juego:
         canvas_dos_jugadores.place(x=-2, y=-2)
         canvas_dos_jugadores.pack()
 
+        # Función que destruye ventana_dos_jugadores y vuelve a llamar al método menu_principal()
         def volver():
             ventana_dos_jugadores.destroy()
             Instancia_Juego.menu_principal()
 
+        # Función auxiliar de modo doubles que destruye la ventana de tkinter de dos jugadores y con una Instancia que llama al método modo_doubles()
         def modo_singles_aux():
             ventana_dos_jugadores.destroy()
             Instancia_Juego.modo_singles()
 
+        #Función auxiliar de modo doubles que destruye la ventana de tkinter de dos jugadores y con una Instancia que llama al método modo_doubles()
         def modo_doubles_aux():
             ventana_dos_jugadores.destroy()
             Instancia_Juego.modo_doubles()
@@ -146,6 +153,7 @@ class Juego:
         doubles.place(x=420, y=600)
 
         #Labels de descripciones de modos de juego
+        #Descripción modo una paleta para dos jugadores
         descripcion_singles = Label(canvas_dos_jugadores,
                                     text="Modo Singles es un un tipo de juego en el que participan\n dos jugadores, y cada jugador controla una paleta",
                                     font=("Arial",20),
@@ -153,6 +161,7 @@ class Juego:
                                     fg="white")
         descripcion_singles.place(x=200,y=200)
 
+        # Descripción modo dos paletas, para dos jugadores
         descripcion_doubles = Label(canvas_dos_jugadores,
                                     text="Modo Doubles: a diferencia del Modo Singles, este es un un tipo de juego\n en el que participan dos jugadores, y cada jugador controla dos paletas",
                                     font=("Arial",20),
@@ -160,6 +169,7 @@ class Juego:
                                     fg="white")
         descripcion_doubles.place(x=95,y=500)
 
+    # Función que abre la ventana de pygame para modo de doble paletas
     def modo_singles(self):
         ColorUno = (0, 140, 60)
         ColorDos = pygame.Color(255, 120, 9)
@@ -179,6 +189,7 @@ class Juego:
             pygame.display.update()
             clock.tick(60)
 
+    #Función que abre la ventana de pygame para modo de doble paletas
     def modo_doubles(self):
         ColorUno = (0, 140, 60)
         ColorDos = pygame.Color(255, 120, 9)
