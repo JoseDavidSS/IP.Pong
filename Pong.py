@@ -930,11 +930,18 @@ class Barras:
                             i += 1
 
 barra1 = Barras(0, 0, 0)
-barra2 = Barras(0, 0, 0)
+barra2 = Barras(1, 0, 0)
 bola = Bola()
 juego = Juego([])
 juego.hacer_matriz()
 juego.menu_principal()
+
+def hacer_random():
+    if nivel == 1:
+        ran = random.randint(0, 1)
+        return ran
+    else:
+        return 0
 
 while not cerrar:
     if comprobar == 0:
@@ -944,34 +951,9 @@ while not cerrar:
         comprobar = 1
     reloj.tick(Fps)
     bola.movimiento()
-    control_movimiento = pygame.time.get_ticks() // 10
     tecla = pygame.key.get_pressed()
-    if barra2.getCPU()==1:
-        vel = bola.getVelocidad()
-        if nivel == 1:
-            while i != len(M[0]):
-                if M[i][37] == 11:
-                    if vel[0] == 1:
-                        M[i][37] = 0
-                        M[i + 3][37] = 11
-                        M[i + 6][37] = 12
-                        M[i + 9][37] = 13
-                        M[0][37] = 31
-                        juego.setMatriz(M)
-                        break
-                    elif vel[0] == -1:
-                        M[i - 1][37] = 11
-                        M[i + 1][37] = 11
-                        M[i + 2][37] = 12
-                        M[i + 5][37] = 13
-                        M[i + 8][37] = 0
-                        M[24][37] = 32
-                        juego.setMatriz(M)
-                        break
-                    else:
-                        break
-                else:
-                    i += 1
+    ran = hacer_random()
+
     if tecla[pygame.K_w] and juego.getMatriz()[0][2] == 31:
         barra1.moverse("Arriba1")
     if tecla[pygame.K_s] and juego.getMatriz()[24][2] == 32:
@@ -989,7 +971,7 @@ while not cerrar:
         pos = bola.getPosicion()
         i = 0
         M = juego.getMatriz()
-        if pos[0] >= 6 and pos[0] <= 18:
+        if pos[0] >= 5 and pos[0] <= 16 and ran == 0:
             if nivel == 1:
                 while i != len(M[0]):
                     if M[i][37] == 11:
