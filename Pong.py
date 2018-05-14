@@ -2,6 +2,8 @@ import pygame as pygame
 import time
 from tkinter import *
 import random
+import winsound
+from threading import Thread
 
 pantalla = []
 
@@ -241,7 +243,70 @@ class Juego:
         return self.M
     def setMatriz(self, nuevo):
         self.M = nuevo
+    def ganador(self):
+        pygame.init()
+
+        ganador = Tk()
+        ganador.title("Ganador")
+        ganador.minsize(550, 300)
+        ganador.maxsize(550, 300)
+
+        canvasg = Canvas(ganador, width=1080, height=720, bg="black")
+        canvasg.place(x=-2, y=-2)
+        canvasg.pack()
+
+        def ganador_aux():
+            ganador.destroy()
+            juego.menu_principal()
+
+        def sonido_ganador():
+            winsound.PlaySound("Ganador.wav", winsound.SND_ALIAS)
+
+        bt_listo = Button(canvasg,
+                          text="Listo",
+                          font=("Arial", 16),
+                          width=14,
+                          bg="white",
+                          command=ganador_aux)
+        bt_listo.place(x=180, y=200)
+
+        if barra1.getNiveles() == 2:
+            gano = Label(canvasg,
+                         text="Felicidades Jugador 1",
+                         font=("Arial", 20),
+                         bg="black",
+                         fg="white")
+            gano.place(x=145, y=30)
+        if barra2.getNiveles() == 2:
+            gano = Label(canvasg,
+                         text="Felicidades Jugador 2",
+                         font=("Arial", 20),
+                         bg="black",
+                         fg="white")
+            gano.place(x=145, y=30)
+
+        t1 = Thread(target = sonido_ganador, args=())
+        t1.start()
+
+        ganador.mainloop()
+
     def menu_principal(self):
+        global Fps
+        global comprobar
+        global cerrar
+        global nivel
+        nivel = 1
+        cerrar = True
+        comprobar = 0
+        Fps = 20
+        juego.hacer_matriz()
+        bola.setVelocidad([1, 1])
+        bola.setPosicion([11,19])
+        barra1.setPuntos(0)
+        barra2.setPuntos(0)
+        barra1.setNiveles(0)
+        barra2.setNiveles(0)
+
         # Crear Ventana
         ventana = Tk()
         ventana.title("Menu Principal")
@@ -441,9 +506,9 @@ class Juego:
         descripcion_controles.place(x=20, y=400)
 
 class Bola:
-    def __init__(self):
-        self.posicion = [11, 19]
-        self.velocidad = [1, 1]
+    def __init__(self, velocidad, posicion):
+        self.posicion = posicion
+        self.velocidad = velocidad
     def getPosicion(self):
         return self.posicion
     def getVelocidad(self):
@@ -483,8 +548,6 @@ class Bola:
         if M[pos[0] + vel[0]][pos[1] + vel[1]] == 41:
             if barra2.getPuntos() > 9:
                 nivel += 1
-                pygame.mixer.music.load("Nivel.wav")
-                pygame.mixer.music.play()
                 if nivel == 2:
                     Fps = 30
                 if nivel == 3:
@@ -496,6 +559,9 @@ class Bola:
                 bola.setPosicion(pos)
                 ganador = barra2.getNiveles()
                 ganador += 1
+                if ganador != 2:
+                    pygame.mixer.music.load("Nivel.wav")
+                    pygame.mixer.music.play()
                 barra2.setNiveles(ganador)
                 time.sleep(0.5)
             else:
@@ -512,8 +578,6 @@ class Bola:
         if M[pos[0] + vel[0]][pos[1] + vel[1]] == 42:
             if barra1.getPuntos() > 9:
                 nivel += 1
-                pygame.mixer.music.load("Nivel.wav")
-                pygame.mixer.music.play()
                 if nivel == 2:
                     Fps = 30
                 if nivel == 3:
@@ -525,6 +589,9 @@ class Bola:
                 bola.setPosicion(pos)
                 ganador = barra1.getNiveles()
                 ganador += 1
+                if ganador != 2:
+                    pygame.mixer.music.load("Nivel.wav")
+                    pygame.mixer.music.play()
                 barra1.setNiveles(ganador)
                 time.sleep(0.5)
             else:
@@ -562,7 +629,7 @@ class Barras:
     def setNiveles(self, nuevo):
         self.niveles = nuevo
     def setCPU(self, nuevo):
-        self.cpu = nuevo
+        self.CPU = nuevo
     def moverse(self, direccion):
         M = juego.getMatriz()
         i = 0
@@ -930,10 +997,9 @@ class Barras:
                             i += 1
 
 barra1 = Barras(0, 0, 0)
-barra2 = Barras(1, 0, 0)
-bola = Bola()
+barra2 = Barras(0, 0, 0)
+bola = Bola([1,1],[11,19])
 juego = Juego([])
-juego.hacer_matriz()
 juego.menu_principal()
 
 def hacer_random():
@@ -958,9 +1024,9 @@ while not cerrar:
         barra1.moverse("Arriba1")
     if tecla[pygame.K_s] and juego.getMatriz()[24][2] == 32:
         barra1.moverse("Abajo1")
-    if tecla[pygame.K_UP] and juego.getMatriz()[0][37] == 31:
+    if tecla[pygame.K_UP] and juego.getMatriz()[0][37] == 31 and barra2.getCPU() == 0:
         barra1.moverse("Arriba2")
-    if tecla[pygame.K_DOWN] and juego.getMatriz()[24][37] == 32:
+    if tecla[pygame.K_DOWN] and juego.getMatriz()[24][37] == 32 and barra2.getCPU() == 0:
         barra1.moverse("Abajo2")
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
@@ -1085,5 +1151,7 @@ while not cerrar:
         n += 1
         m = 0
     pygame.display.update()
+
     if barra1.getNiveles() == 2 or barra2.getNiveles() == 2:
         pygame.quit()
+        juego.ganador()
