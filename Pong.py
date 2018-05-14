@@ -930,7 +930,6 @@ class Barras:
                             else:
                                 i += 1
         else:
-            pos = bola.getPosicion()
             vel = bola.getVelocidad()
             if nivel == 1:
                 while i != len(M[0]):
@@ -1093,6 +1092,7 @@ while not cerrar:
     bola.movimiento()
     control_movimiento = pygame.time.get_ticks() // 10
     tecla = pygame.key.get_pressed()
+
     if tecla[pygame.K_w] and juego.getMatriz()[0][2] == 31:
         barra1.moverse("Arriba1")
     if tecla[pygame.K_s] and juego.getMatriz()[24][2] == 32:
@@ -1104,6 +1104,81 @@ while not cerrar:
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
             pygame.quit()
+
+    if barra2.getCPU() == 1:
+        vel = bola.getVelocidad()
+        i = 0
+        M = juego.getMatriz()
+        if nivel == 1:
+            while i != len(M[0]):
+                if M[i][37] == 11:
+                    if vel[0] == 1:
+                        M[i][37] = 0
+                        M[i + 3][37] = 11
+                        M[i + 6][37] = 12
+                        M[i + 9][37] = 13
+                        M[0][37] = 31
+                        juego.setMatriz(M)
+                        break
+                    elif vel[0] == -1:
+                        M[i - 1][37] = 11
+                        M[i + 1][37] = 11
+                        M[i + 2][37] = 12
+                        M[i + 5][37] = 13
+                        M[i + 8][37] = 0
+                        M[24][37] = 32
+                        juego.setMatriz(M)
+                        break
+                    else:
+                        break
+                else:
+                    i += 1
+        elif nivel == 2:
+            while i != len(M[0]):
+                if M[i][37] == 11:
+                    if vel[0] == 1:
+                        M[i][37] = 0
+                        M[i + 2][37] = 11
+                        M[i + 4][37] = 12
+                        M[i + 6][37] = 13
+                        M[0][37] = 31
+                        juego.setMatriz(M)
+                        break
+                    elif vel[0] == -1:
+                        M[i - 1][37] = 11
+                        M[i + 1][37] = 12
+                        M[i + 3][37] = 13
+                        M[i + 5][37] = 0
+                        M[24][37] = 32
+                        juego.setMatriz(M)
+                        break
+                    else:
+                        break
+                else:
+                    i += 1
+        else:
+            while i != len(M[0]):
+                if M[i][37] == 11:
+                    if vel[0] == 1:
+                        M[i][37] = 0
+                        M[i + 1][37] = 11
+                        M[i + 2][37] = 12
+                        M[i + 3][37] = 13
+                        M[0][37] = 31
+                        juego.setMatriz(M)
+                        break
+                    elif vel[0] == -1:
+                        M[i - 1][37] = 11
+                        M[i][37] = 12
+                        M[i + 1][37] = 13
+                        M[i + 2][37] = 0
+                        M[24][37] = 32
+                        juego.setMatriz(M)
+                        break
+                    else:
+                        break
+                else:
+                    i += 1
 
     x = 0
     y = 0
