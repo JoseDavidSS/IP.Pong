@@ -566,395 +566,8 @@ class Barras:
     def moverse(self, direccion):
         M = juego.getMatriz()
         i = 0
-        if barra2.getCPU()  == 0:
-            if barras == 1:
-                if nivel == 1:
-                    if direccion == "Arriba1":
-                        while i != len(M[0]):
-                            if M[i][2] == 11:
-                                M[i - 1][2] = 11
-                                M[i + 1][2] = 11
-                                M[i + 2][2] = 12
-                                M[i + 5][2] = 13
-                                M[i + 8][2] = 0
-                                M[24][2] = 32
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Abajo1":
-                        while i != len(M[0]):
-                            if M[i][2] == 11:
-                                M[i][2] = 0
-                                M[i + 3][2] = 11
-                                M[i + 6][2] = 12
-                                M[i + 9][2] = 13
-                                M[0][2] = 31
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Arriba2":
-                        while i != len(M[0]):
-                            if M[i][37] == 11:
-                                M[i - 1][37] = 11
-                                M[i + 1][37] = 11
-                                M[i + 2][37] = 12
-                                M[i + 5][37] = 13
-                                M[i + 8][37] = 0
-                                M[24][37] = 32
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Abajo2":
-                        while i != len(M[0]):
-                            if M[i][37] == 11:
-                                M[i][37] = 0
-                                M[i + 3][37] = 11
-                                M[i + 6][37] = 12
-                                M[i + 9][37] = 13
-                                M[0][37] = 31
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                elif nivel == 2:
-                    if direccion == "Arriba1":
-                        while i != len(M[0]):
-                            if M[i][2] == 11:
-                                M[i - 1][2] = 11
-                                M[i + 1][2] = 12
-                                M[i + 3][2] = 13
-                                M[i + 5][2] = 0
-                                M[24][2] = 32
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Abajo1":
-                        while i != len(M[0]):
-                            if M[i][2] == 11:
-                                M[i][2] = 0
-                                M[i + 2][2] = 11
-                                M[i + 4][2] = 12
-                                M[i + 6][2] = 13
-                                M[0][2] = 31
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Arriba2":
-                        while i != len(M[0]):
-                            if M[i][37] == 11:
-                                M[i - 1][37] = 11
-                                M[i + 1][37] = 12
-                                M[i + 3][37] = 13
-                                M[i + 5][37] = 0
-                                M[24][37] = 32
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Abajo2":
-                        while i != len(M[0]):
-                            if M[i][37] == 11:
-                                M[i][37] = 0
-                                M[i + 2][37] = 11
-                                M[i + 4][37] = 12
-                                M[i + 6][37] = 13
-                                M[0][37] = 31
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                else:
-                    if direccion == "Arriba1":
-                        while i != len(M[0]):
-                            if M[i][2] == 11:
-                                M[i - 1][2] = 11
-                                M[i][2] = 12
-                                M[i + 1][2] = 13
-                                M[i + 2][2] = 0
-                                M[24][2] = 32
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Abajo1":
-                        while i != len(M[0]):
-                            if M[i][2] == 11:
-                                M[i][2] = 0
-                                M[i + 1][2] = 11
-                                M[i + 2][2] = 12
-                                M[i + 3][2] = 13
-                                M[0][2] = 31
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Arriba2":
-                        while i != len(M[0]):
-                            if M[i][37] == 11:
-                                M[i - 1][37] = 11
-                                M[i][37] = 12
-                                M[i + 1][37] = 13
-                                M[i + 2][37] = 0
-                                M[24][37] = 32
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Abajo2":
-                        while i != len(M[0]):
-                            if M[i][37] == 11:
-                                M[i][37] = 0
-                                M[i + 1][37] = 11
-                                M[i + 2][37] = 12
-                                M[i + 3][37] = 13
-                                M[0][37] = 31
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-            else:
-                if nivel == 1:
-                    if direccion == "Arriba1":
-                        while i != len(M[0]):
-                            if M[i][2] == 11:
-                                M[i - 1][2] = 11
-                                M[i + 1][2] = 11
-                                M[i + 2][2] = 12
-                                M[i + 5][2] = 13
-                                M[i + 8][2] = 0
-                                M[24][2] = 32
-                                M[i - 1][6] = 11
-                                M[i + 1][6] = 11
-                                M[i + 2][6] = 12
-                                M[i + 5][6] = 13
-                                M[i + 8][6] = 0
-                                M[24][6] = 32
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Abajo1":
-                        while i != len(M[0]):
-                            if M[i][2] == 11:
-                                M[i][2] = 0
-                                M[i + 3][2] = 11
-                                M[i + 6][2] = 12
-                                M[i + 9][2] = 13
-                                M[0][2] = 31
-                                M[i][6] = 0
-                                M[i + 3][6] = 11
-                                M[i + 6][6] = 12
-                                M[i + 9][6] = 13
-                                M[0][6] = 31
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Arriba2":
-                        while i != len(M[0]):
-                            if M[i][37] == 11:
-                                M[i - 1][37] = 11
-                                M[i + 1][37] = 11
-                                M[i + 2][37] = 12
-                                M[i + 5][37] = 13
-                                M[i + 8][37] = 0
-                                M[24][37] = 32
-                                M[i - 1][33] = 11
-                                M[i + 1][33] = 11
-                                M[i + 2][33] = 12
-                                M[i + 5][33] = 13
-                                M[i + 8][33] = 0
-                                M[24][33] = 32
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Abajo2":
-                        while i != len(M[0]):
-                            if M[i][37] == 11:
-                                M[i][37] = 0
-                                M[i + 3][37] = 11
-                                M[i + 6][37] = 12
-                                M[i + 9][37] = 13
-                                M[0][37] = 31
-                                M[i][33] = 0
-                                M[i + 3][33] = 11
-                                M[i + 6][33] = 12
-                                M[i + 9][33] = 13
-                                M[0][33] = 31
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                elif nivel == 2:
-                    if direccion == "Arriba1":
-                        while i != len(M[0]):
-                            if M[i][2] == 11:
-                                M[i - 1][2] = 11
-                                M[i + 1][2] = 12
-                                M[i + 3][2] = 13
-                                M[i + 5][2] = 0
-                                M[24][2] = 32
-                                M[i - 1][6] = 11
-                                M[i + 1][6] = 12
-                                M[i + 3][6] = 13
-                                M[i + 5][6] = 0
-                                M[24][6] = 32
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Abajo1":
-                        while i != len(M[0]):
-                            if M[i][2] == 11:
-                                M[i][2] = 0
-                                M[i + 2][2] = 11
-                                M[i + 4][2] = 12
-                                M[i + 6][2] = 13
-                                M[0][2] = 31
-                                M[i][6] = 0
-                                M[i + 2][6] = 11
-                                M[i + 4][6] = 12
-                                M[i + 6][6] = 13
-                                M[0][6] = 31
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Arriba2":
-                        while i != len(M[0]):
-                            if M[i][37] == 11:
-                                M[i - 1][37] = 11
-                                M[i + 1][37] = 12
-                                M[i + 3][37] = 13
-                                M[i + 5][37] = 0
-                                M[24][37] = 32
-                                M[i - 1][33] = 11
-                                M[i + 1][33] = 12
-                                M[i + 3][33] = 13
-                                M[i + 5][33] = 0
-                                M[24][33] = 32
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Abajo2":
-                        while i != len(M[0]):
-                            if M[i][37] == 11:
-                                M[i][37] = 0
-                                M[i + 2][37] = 11
-                                M[i + 4][37] = 12
-                                M[i + 6][37] = 13
-                                M[0][37] = 31
-                                M[i][33] = 0
-                                M[i + 2][33] = 11
-                                M[i + 4][33] = 12
-                                M[i + 6][33] = 13
-                                M[0][33] = 31
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                else:
-                    if direccion == "Arriba1":
-                        while i != len(M[0]):
-                            if M[i][2] == 11:
-                                M[i - 1][2] = 11
-                                M[i][2] = 12
-                                M[i + 1][2] = 13
-                                M[i + 2][2] = 0
-                                M[24][2] = 32
-                                M[i - 1][6] = 11
-                                M[i][6] = 12
-                                M[i + 1][6] = 13
-                                M[i + 2][6] = 0
-                                M[24][6] = 32
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Abajo1":
-                        while i != len(M[0]):
-                            if M[i][2] == 11:
-                                M[i][2] = 0
-                                M[i + 1][2] = 11
-                                M[i + 2][2] = 12
-                                M[i + 3][2] = 13
-                                M[0][2] = 31
-                                M[i][6] = 0
-                                M[i + 1][6] = 11
-                                M[i + 2][6] = 12
-                                M[i + 3][6] = 13
-                                M[0][6] = 31
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Arriba2":
-                        while i != len(M[0]):
-                            if M[i][37] == 11:
-                                M[i - 1][37] = 11
-                                M[i][37] = 12
-                                M[i + 1][37] = 13
-                                M[i + 2][37] = 0
-                                M[24][37] = 32
-                                M[i - 1][33] = 11
-                                M[i][33] = 12
-                                M[i + 1][33] = 13
-                                M[i + 2][33] = 0
-                                M[24][33] = 32
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-                    elif direccion == "Abajo2":
-                        while i != len(M[0]):
-                            if M[i][37] == 11:
-                                M[i][37] = 0
-                                M[i + 1][37] = 11
-                                M[i + 2][37] = 12
-                                M[i + 3][37] = 13
-                                M[0][37] = 31
-                                M[i][33] = 0
-                                M[i + 1][33] = 11
-                                M[i + 2][33] = 12
-                                M[i + 3][33] = 13
-                                M[0][33] = 31
-                                juego.setMatriz(M)
-                                break
-                            else:
-                                i += 1
-        else:
-            vel = bola.getVelocidad()
+        if barras == 1:
             if nivel == 1:
-                while i != len(M[0]):
-                    if  M[i][37] == 11:
-                        if vel[0]==1:
-                            M[i][37] = 0
-                            M[i + 3][37] = 11
-                            M[i + 6][37] = 12
-                            M[i + 9][37] = 13
-                            M[0][37] = 31
-                            juego.setMatriz(M)
-                            break
-                        elif vel[0]==-1:
-                            M[i - 1][37] = 11
-                            M[i + 1][37] = 11
-                            M[i + 2][37] = 12
-                            M[i + 5][37] = 13
-                            M[i + 8][37] = 0
-                            M[24][37] = 32
-                            juego.setMatriz(M)
-                            break
-                        else:
-                            break
-                    else:
-                        i+=1
                 if direccion == "Arriba1":
                     while i != len(M[0]):
                         if M[i][2] == 11:
@@ -980,29 +593,32 @@ class Barras:
                             break
                         else:
                             i += 1
-            elif nivel == 2:
-                while i != len(M[0]):
-                    if  M[i][37] == 11:
-                        if vel[0]==1:
-                            M[i][37] = 0
-                            M[i + 2][37] = 11
-                            M[i + 4][37] = 12
-                            M[i + 6][37] = 13
-                            M[0][37] = 31
-                            juego.setMatriz(M)
-                            break
-                        elif vel[0]==-1:
+                elif direccion == "Arriba2":
+                    while i != len(M[0]):
+                        if M[i][37] == 11:
                             M[i - 1][37] = 11
-                            M[i + 1][37] = 12
-                            M[i + 3][37] = 13
-                            M[i + 5][37] = 0
+                            M[i + 1][37] = 11
+                            M[i + 2][37] = 12
+                            M[i + 5][37] = 13
+                            M[i + 8][37] = 0
                             M[24][37] = 32
                             juego.setMatriz(M)
                             break
                         else:
+                            i += 1
+                elif direccion == "Abajo2":
+                    while i != len(M[0]):
+                        if M[i][37] == 11:
+                            M[i][37] = 0
+                            M[i + 3][37] = 11
+                            M[i + 6][37] = 12
+                            M[i + 9][37] = 13
+                            M[0][37] = 31
+                            juego.setMatriz(M)
                             break
-                    else:
-                        i+=1
+                        else:
+                            i += 1
+            elif nivel == 2:
                 if direccion == "Arriba1":
                     while i != len(M[0]):
                         if M[i][2] == 11:
@@ -1027,29 +643,31 @@ class Barras:
                             break
                         else:
                             i += 1
-            else:
-                while i != len(M[0]):
-                    if  M[i][37] == 11:
-                        if vel[0]==1:
-                            M[i][37] = 0
-                            M[i + 1][37] = 11
-                            M[i + 2][37] = 12
-                            M[i + 3][37] = 13
-                            M[0][37] = 31
-                            juego.setMatriz(M)
-                            break
-                        elif vel[0]==-1:
+                elif direccion == "Arriba2":
+                    while i != len(M[0]):
+                        if M[i][37] == 11:
                             M[i - 1][37] = 11
-                            M[i][37] = 12
-                            M[i + 1][37] = 13
-                            M[i + 2][37] = 0
+                            M[i + 1][37] = 12
+                            M[i + 3][37] = 13
+                            M[i + 5][37] = 0
                             M[24][37] = 32
                             juego.setMatriz(M)
                             break
                         else:
+                            i += 1
+                elif direccion == "Abajo2":
+                    while i != len(M[0]):
+                        if M[i][37] == 11:
+                            M[i][37] = 0
+                            M[i + 2][37] = 11
+                            M[i + 4][37] = 12
+                            M[i + 6][37] = 13
+                            M[0][37] = 31
+                            juego.setMatriz(M)
                             break
-                    else:
-                        i+=1
+                        else:
+                            i += 1
+            else:
                 if direccion == "Arriba1":
                     while i != len(M[0]):
                         if M[i][2] == 11:
@@ -1074,9 +692,245 @@ class Barras:
                             break
                         else:
                             i += 1
+                elif direccion == "Arriba2":
+                    while i != len(M[0]):
+                        if M[i][37] == 11:
+                            M[i - 1][37] = 11
+                            M[i][37] = 12
+                            M[i + 1][37] = 13
+                            M[i + 2][37] = 0
+                            M[24][37] = 32
+                            juego.setMatriz(M)
+                            break
+                        else:
+                            i += 1
+                elif direccion == "Abajo2":
+                    while i != len(M[0]):
+                        if M[i][37] == 11:
+                            M[i][37] = 0
+                            M[i + 1][37] = 11
+                            M[i + 2][37] = 12
+                            M[i + 3][37] = 13
+                            M[0][37] = 31
+                            juego.setMatriz(M)
+                            break
+                        else:
+                            i += 1
+        else:
+            if nivel == 1:
+                if direccion == "Arriba1":
+                    while i != len(M[0]):
+                        if M[i][2] == 11:
+                            M[i - 1][2] = 11
+                            M[i + 1][2] = 11
+                            M[i + 2][2] = 12
+                            M[i + 5][2] = 13
+                            M[i + 8][2] = 0
+                            M[24][2] = 32
+                            M[i - 1][6] = 11
+                            M[i + 1][6] = 11
+                            M[i + 2][6] = 12
+                            M[i + 5][6] = 13
+                            M[i + 8][6] = 0
+                            M[24][6] = 32
+                            juego.setMatriz(M)
+                            break
+                        else:
+                            i += 1
+                elif direccion == "Abajo1":
+                    while i != len(M[0]):
+                        if M[i][2] == 11:
+                            M[i][2] = 0
+                            M[i + 3][2] = 11
+                            M[i + 6][2] = 12
+                            M[i + 9][2] = 13
+                            M[0][2] = 31
+                            M[i][6] = 0
+                            M[i + 3][6] = 11
+                            M[i + 6][6] = 12
+                            M[i + 9][6] = 13
+                            M[0][6] = 31
+                            juego.setMatriz(M)
+                            break
+                        else:
+                            i += 1
+                elif direccion == "Arriba2":
+                    while i != len(M[0]):
+                        if M[i][37] == 11:
+                            M[i - 1][37] = 11
+                            M[i + 1][37] = 11
+                            M[i + 2][37] = 12
+                            M[i + 5][37] = 13
+                            M[i + 8][37] = 0
+                            M[24][37] = 32
+                            M[i - 1][33] = 11
+                            M[i + 1][33] = 11
+                            M[i + 2][33] = 12
+                            M[i + 5][33] = 13
+                            M[i + 8][33] = 0
+                            M[24][33] = 32
+                            juego.setMatriz(M)
+                            break
+                        else:
+                            i += 1
+                elif direccion == "Abajo2":
+                    while i != len(M[0]):
+                        if M[i][37] == 11:
+                            M[i][37] = 0
+                            M[i + 3][37] = 11
+                            M[i + 6][37] = 12
+                            M[i + 9][37] = 13
+                            M[0][37] = 31
+                            M[i][33] = 0
+                            M[i + 3][33] = 11
+                            M[i + 6][33] = 12
+                            M[i + 9][33] = 13
+                            M[0][33] = 31
+                            juego.setMatriz(M)
+                            break
+                        else:
+                            i += 1
+            elif nivel == 2:
+                if direccion == "Arriba1":
+                    while i != len(M[0]):
+                        if M[i][2] == 11:
+                            M[i - 1][2] = 11
+                            M[i + 1][2] = 12
+                            M[i + 3][2] = 13
+                            M[i + 5][2] = 0
+                            M[24][2] = 32
+                            M[i - 1][6] = 11
+                            M[i + 1][6] = 12
+                            M[i + 3][6] = 13
+                            M[i + 5][6] = 0
+                            M[24][6] = 32
+                            juego.setMatriz(M)
+                            break
+                        else:
+                            i += 1
+                elif direccion == "Abajo1":
+                    while i != len(M[0]):
+                        if M[i][2] == 11:
+                            M[i][2] = 0
+                            M[i + 2][2] = 11
+                            M[i + 4][2] = 12
+                            M[i + 6][2] = 13
+                            M[0][2] = 31
+                            M[i][6] = 0
+                            M[i + 2][6] = 11
+                            M[i + 4][6] = 12
+                            M[i + 6][6] = 13
+                            M[0][6] = 31
+                            juego.setMatriz(M)
+                            break
+                        else:
+                            i += 1
+                elif direccion == "Arriba2":
+                    while i != len(M[0]):
+                        if M[i][37] == 11:
+                            M[i - 1][37] = 11
+                            M[i + 1][37] = 12
+                            M[i + 3][37] = 13
+                            M[i + 5][37] = 0
+                            M[24][37] = 32
+                            M[i - 1][33] = 11
+                            M[i + 1][33] = 12
+                            M[i + 3][33] = 13
+                            M[i + 5][33] = 0
+                            M[24][33] = 32
+                            juego.setMatriz(M)
+                            break
+                        else:
+                            i += 1
+                elif direccion == "Abajo2":
+                    while i != len(M[0]):
+                        if M[i][37] == 11:
+                            M[i][37] = 0
+                            M[i + 2][37] = 11
+                            M[i + 4][37] = 12
+                            M[i + 6][37] = 13
+                            M[0][37] = 31
+                            M[i][33] = 0
+                            M[i + 2][33] = 11
+                            M[i + 4][33] = 12
+                            M[i + 6][33] = 13
+                            M[0][33] = 31
+                            juego.setMatriz(M)
+                            break
+                        else:
+                            i += 1
+            else:
+                if direccion == "Arriba1":
+                    while i != len(M[0]):
+                        if M[i][2] == 11:
+                            M[i - 1][2] = 11
+                            M[i][2] = 12
+                            M[i + 1][2] = 13
+                            M[i + 2][2] = 0
+                            M[24][2] = 32
+                            M[i - 1][6] = 11
+                            M[i][6] = 12
+                            M[i + 1][6] = 13
+                            M[i + 2][6] = 0
+                            M[24][6] = 32
+                            juego.setMatriz(M)
+                            break
+                        else:
+                            i += 1
+                elif direccion == "Abajo1":
+                    while i != len(M[0]):
+                        if M[i][2] == 11:
+                            M[i][2] = 0
+                            M[i + 1][2] = 11
+                            M[i + 2][2] = 12
+                            M[i + 3][2] = 13
+                            M[0][2] = 31
+                            M[i][6] = 0
+                            M[i + 1][6] = 11
+                            M[i + 2][6] = 12
+                            M[i + 3][6] = 13
+                            M[0][6] = 31
+                            juego.setMatriz(M)
+                            break
+                        else:
+                            i += 1
+                elif direccion == "Arriba2":
+                    while i != len(M[0]):
+                        if M[i][37] == 11:
+                            M[i - 1][37] = 11
+                            M[i][37] = 12
+                            M[i + 1][37] = 13
+                            M[i + 2][37] = 0
+                            M[24][37] = 32
+                            M[i - 1][33] = 11
+                            M[i][33] = 12
+                            M[i + 1][33] = 13
+                            M[i + 2][33] = 0
+                            M[24][33] = 32
+                            juego.setMatriz(M)
+                            break
+                        else:
+                            i += 1
+                elif direccion == "Abajo2":
+                    while i != len(M[0]):
+                        if M[i][37] == 11:
+                            M[i][37] = 0
+                            M[i + 1][37] = 11
+                            M[i + 2][37] = 12
+                            M[i + 3][37] = 13
+                            M[0][37] = 31
+                            M[i][33] = 0
+                            M[i + 1][33] = 11
+                            M[i + 2][33] = 12
+                            M[i + 3][33] = 13
+                            M[0][33] = 31
+                            juego.setMatriz(M)
+                            break
+                        else:
+                            i += 1
 
 barra1 = Barras(0, 0, 0)
-barra2 = Barras(1, 0, 0)
+barra2 = Barras(0, 0, 0)
 bola = Bola()
 juego = Juego([])
 juego.hacer_matriz()
@@ -1092,7 +946,32 @@ while not cerrar:
     bola.movimiento()
     control_movimiento = pygame.time.get_ticks() // 10
     tecla = pygame.key.get_pressed()
-
+    if barra2.getCPU()==1:
+        vel = bola.getVelocidad()
+        if nivel == 1:
+            while i != len(M[0]):
+                if M[i][37] == 11:
+                    if vel[0] == 1:
+                        M[i][37] = 0
+                        M[i + 3][37] = 11
+                        M[i + 6][37] = 12
+                        M[i + 9][37] = 13
+                        M[0][37] = 31
+                        juego.setMatriz(M)
+                        break
+                    elif vel[0] == -1:
+                        M[i - 1][37] = 11
+                        M[i + 1][37] = 11
+                        M[i + 2][37] = 12
+                        M[i + 5][37] = 13
+                        M[i + 8][37] = 0
+                        M[24][37] = 32
+                        juego.setMatriz(M)
+                        break
+                    else:
+                        break
+                else:
+                    i += 1
     if tecla[pygame.K_w] and juego.getMatriz()[0][2] == 31:
         barra1.moverse("Arriba1")
     if tecla[pygame.K_s] and juego.getMatriz()[24][2] == 32:
