@@ -245,7 +245,6 @@ class Juego:
         self.M = nuevo
     def ganador(self):
         pygame.init()
-
         ganador = Tk()
         ganador.title("Ganador")
         ganador.minsize(550, 300)
@@ -289,7 +288,6 @@ class Juego:
         t1.start()
 
         ganador.mainloop()
-
     def menu_principal(self):
         global Fps
         global comprobar
@@ -319,13 +317,13 @@ class Juego:
         canvas.pack()
 
         # Funciones que llaman a los otros métodos de la clase con instancias
-        def ventana_un_jugador_aux():
+        def jugador_CPU_aux():
             ventana.destroy()
-            juego.ventana_un_jugador()
+            juego.jugador_CPU()
 
-        def ventana_dos_jugadores_aux():
+        def ventana_modos_aux():
             ventana.withdraw()
-            juego.ventana_dos_jugadores()
+            juego.ventana_modos()
 
         def ventana_instrucciones_aux():
             ventana.withdraw()
@@ -337,17 +335,33 @@ class Juego:
                             font=("Arial", 20),
                             width=14,
                             bg="white",
-                            command=ventana_un_jugador_aux)
-        un_jugador.place(x=425, y=300)
+                            command=jugador_CPU_aux)
+        un_jugador.place(x=425, y=250)
 
-        # Boton para iniciar partida de dos jugadores
-        dos_jugadores = Button(canvas,
-                               text="Dos Jugadores",
+        bt_singles = Button(canvas,
+                            text="Singles",
+                            font=("Arial", 20),
+                            width=14,
+                            bg="white",
+                            command=jugador_CPU_aux)
+        bt_singles.place(x=425, y=380)
+
+        bt_doubles = Button(canvas,
+                            text="Doubles",
+                            font=("Arial", 20),
+                            width=14,
+                            bg="white",
+                            command=jugador_CPU_aux)
+        bt_doubles.place(x=425, y=450)
+
+        # Boton para ver ventana de descripciones de modos de juego
+        bt_modos = Button(canvas,
+                               text="Modos",
                                font=("Arial", 20),
                                width=14,
                                bg="white",
-                               command=ventana_dos_jugadores_aux)
-        dos_jugadores.place(x=425, y=400)
+                               command=ventana_modos_aux)
+        bt_modos.place(x=425, y=580)
 
         # Boton para ir a ventana de instrucciones
         bt_instrucciones = Button(canvas,
@@ -356,7 +370,7 @@ class Juego:
                                   width=14,
                                   bg="white",
                                   command=ventana_instrucciones_aux)
-        bt_instrucciones.place(x=425, y=600)
+        bt_instrucciones.place(x=425, y=650)
 
         # Labels
         titulo = Label(canvas,
@@ -368,88 +382,72 @@ class Juego:
 
         # Fin del loop
         ventana.mainloop()
-
-    def ventana_un_jugador(self):
+    def jugador_CPU(self):
         global cerrar
         barra2.setCPU(1)
         cerrar = False
-
-    def ventana_dos_jugadores(self):
+    def jugador_singles(self):
+        ventana.destroy()
+        global cerrar
+        barra2.setCPU(1)
+        cerrar = False
+    def jugador_doubles(self):
+        ventana.destroy()
+        global cerrar
+        barra2.setCPU(1)
+        cerrar = False
+    def ventana_modos(self):
         # Crear Ventana
-        ventana_dos_jugadores = Tk()
-        ventana_dos_jugadores.title("Dos Jugadores")
-        ventana_dos_jugadores.minsize(1080, 720)
-        ventana_dos_jugadores.resizable(width=NO, height=NO)
+        ventana_modos = Tk()
+        ventana_modos.title("Modos de Juego")
+        ventana_modos.minsize(1080, 720)
+        ventana_modos.resizable(width=NO, height=NO)
 
         # Crear Canvas
-        canvas_dos_jugadores = Canvas(ventana_dos_jugadores, width=1080, height=720, bg="black")
-        canvas_dos_jugadores.place(x=-2, y=-2)
-        canvas_dos_jugadores.pack()
+        canvas_modos = Canvas(ventana_modos, width=1080, height=720, bg="black")
+        canvas_modos.place(x=-2, y=-2)
+        canvas_modos.pack()
 
         def volver():
-            ventana_dos_jugadores.destroy()
+            ventana_modos.destroy()
             juego.menu_principal()
 
-        def modo_singles_aux():
-            ventana_dos_jugadores.destroy()
-            juego.modo_singles()
-
-        def modo_doubles_aux():
-            ventana_dos_jugadores.destroy()
-            juego.modo_doubles()
-
         # Botón para volver al menú principal
-        atras = Button(canvas_dos_jugadores,
+        atras = Button(canvas_modos,
                        text="Volver al Menú Principal",
                        font=("Arial", 16),
                        bg="white",
                        command=volver)
         atras.place(x=820, y=25)
 
-        # Botón para jugar modo singles
-        singles = Button(canvas_dos_jugadores,
-                         text="Jugar modo Singles",
-                         font=("Arial", 20),
-                         bg="white",
-                         command=modo_singles_aux)
-        singles.place(x=420, y=300)
-
-        # Botón para jugar modo doubles
-        doubles = Button(canvas_dos_jugadores,
-                         text="Jugar modo Doubles",
-                         font=("Arial", 20),
-                         bg="white",
-                         command=modo_doubles_aux)
-        doubles.place(x=420, y=600)
-
         # Labels de descripciones de modos de juego
-        descripcion_singles = Label(canvas_dos_jugadores,
+        descripcion_singles = Label(canvas_modos,
                                     text="Modo Singles es un un tipo de juego en el que participan\n dos jugadores, y cada jugador controla una paleta",
                                     font=("Arial", 20),
                                     bg="black",
                                     fg="white")
         descripcion_singles.place(x=200, y=200)
 
-        descripcion_doubles = Label(canvas_dos_jugadores,
+        descripcion_doubles = Label(canvas_modos,
                                     text="Modo Doubles: a diferencia del Modo Singles, este es un un tipo de juego\n en el que participan dos jugadores, y cada jugador controla dos paletas",
                                     font=("Arial", 20),
                                     bg="black",
                                     fg="white")
         descripcion_doubles.place(x=95, y=500)
 
-    def modo_singles(self):
-        global cerrar
-        juego.hacer_matriz()
-        cerrar = False
+        lb_doubles = Label(canvas_modos,
+                                    text="Modo Doubles",
+                                    font=("Arial", 30),
+                                    bg="white",
+                                    fg="black")
+        lb_doubles.place(x=400, y=425)
 
-    def modo_doubles(self):
-        global cerrar
-        global barras
-        barras = 2
-        juego.hacer_matriz()
-        cerrar = False
-
-
+        lb_singles = Label(canvas_modos,
+                                    text="Modo Singles",
+                                    font=("Arial", 30),
+                                    bg="white",
+                                    fg="black")
+        lb_singles.place(x=410, y=125)
     def ventana_instrucciones(self):
         # Crear Ventana
         ventana_instrucciones = Tk()
@@ -612,7 +610,6 @@ class Bola:
             bola.setPosicion(pos)
             bola.setVelocidad(vel)
             juego.setMatriz(M)
-
 class Barras:
     def __init__(self, CPU, puntos, niveles):
         self.CPU = CPU
@@ -996,19 +993,17 @@ class Barras:
                         else:
                             i += 1
 
-barra1 = Barras(0, 0, 0)
+barra1 = Barras(1, 0, 0)
 barra2 = Barras(0, 0, 0)
 bola = Bola([1,1],[11,19])
 juego = Juego([])
 juego.menu_principal()
-
 def hacer_random():
     if nivel == 1:
         ran = random.randint(0, 1)
         return ran
     else:
         return 0
-
 while not cerrar:
     if comprobar == 0:
         pantalla = pygame.display.set_mode((largo_pantalla, ancho_pantalla))
