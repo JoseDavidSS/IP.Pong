@@ -289,10 +289,12 @@ class Juego:
 
         ganador.mainloop()
     def menu_principal(self):
+        global barras
         global Fps
         global comprobar
         global cerrar
         global nivel
+        barras = 1
         nivel = 1
         cerrar = True
         comprobar = 0
@@ -321,6 +323,14 @@ class Juego:
             ventana.destroy()
             juego.jugador_CPU()
 
+        def jugador_singles_aux():
+            ventana.destroy()
+            juego.jugador_singles()
+
+        def jugador_doubles_aux():
+            ventana.destroy()
+            juego.jugador_doubles()
+
         def ventana_modos_aux():
             ventana.withdraw()
             juego.ventana_modos()
@@ -343,7 +353,7 @@ class Juego:
                             font=("Arial", 20),
                             width=14,
                             bg="white",
-                            command=jugador_CPU_aux)
+                            command=jugador_singles_aux)
         bt_singles.place(x=425, y=380)
 
         bt_doubles = Button(canvas,
@@ -351,7 +361,7 @@ class Juego:
                             font=("Arial", 20),
                             width=14,
                             bg="white",
-                            command=jugador_CPU_aux)
+                            command=jugador_doubles_aux)
         bt_doubles.place(x=425, y=450)
 
         # Boton para ver ventana de descripciones de modos de juego
@@ -387,14 +397,15 @@ class Juego:
         barra2.setCPU(1)
         cerrar = False
     def jugador_singles(self):
-        ventana.destroy()
         global cerrar
-        barra2.setCPU(1)
+        barra2.setCPU(0)
         cerrar = False
     def jugador_doubles(self):
-        ventana.destroy()
         global cerrar
-        barra2.setCPU(1)
+        global barras
+        barras = 2
+        barra2.setCPU(0)
+        juego.hacer_matriz()
         cerrar = False
     def ventana_modos(self):
         # Crear Ventana
@@ -998,6 +1009,7 @@ barra2 = Barras(0, 0, 0)
 bola = Bola([1,1],[11,19])
 juego = Juego([])
 juego.menu_principal()
+
 def hacer_random():
     if nivel == 1:
         ran = random.randint(0, 1)
