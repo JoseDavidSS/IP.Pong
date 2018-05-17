@@ -131,11 +131,11 @@ class Juego:
                             self.M[n][m] = 12
                         elif n >= 13 and n <= 15 and m == 2:
                             self.M[n][m] = 13
-                        elif n >= 7 and n <= 9 and m == 6:
+                        elif n >= 7 and n <= 9 and m == 8:
                             self.M[n][m] = 11
-                        elif n >= 10 and n <= 12 and m == 6:
+                        elif n >= 10 and n <= 12 and m == 8:
                             self.M[n][m] = 12
-                        elif n >= 13 and n <= 15 and m == 6:
+                        elif n >= 13 and n <= 15 and m == 8:
                             self.M[n][m] = 13
                         elif n >= 7 and n <= 15 and m == 37:
                             self.M[n][m] = 11
@@ -143,11 +143,11 @@ class Juego:
                             self.M[n][m] = 12
                         elif n >= 13 and n <= 15 and m == 37:
                             self.M[n][m] = 13
-                        elif n >= 7 and n <= 15 and m == 33:
+                        elif n >= 7 and n <= 15 and m == 31:
                             self.M[n][m] = 11
-                        elif n >= 10 and n <= 12 and m == 33:
+                        elif n >= 10 and n <= 12 and m == 31:
                             self.M[n][m] = 12
-                        elif n >= 13 and n <= 15 and m == 33:
+                        elif n >= 13 and n <= 15 and m == 31:
                             self.M[n][m] = 13
                         elif n == 11 and m == 19:
                             self.M[n][m] = 2
@@ -170,11 +170,11 @@ class Juego:
                             self.M[n][m] = 12
                         elif n >= 15 and n <= 16 and m == 2:
                             self.M[n][m] = 13
-                        elif n >= 11 and n <= 12 and m == 6:
+                        elif n >= 11 and n <= 12 and m == 8:
                             self.M[n][m] = 11
-                        elif n >= 13 and n <= 14 and m == 6:
+                        elif n >= 13 and n <= 14 and m == 8:
                             self.M[n][m] = 12
-                        elif n >= 15 and n <= 16 and m == 6:
+                        elif n >= 15 and n <= 16 and m == 8:
                             self.M[n][m] = 13
                         elif n >= 11 and n <= 12 and m == 37:
                             self.M[n][m] = 11
@@ -182,11 +182,11 @@ class Juego:
                             self.M[n][m] = 12
                         elif n >= 15 and n <= 16 and m == 37:
                             self.M[n][m] = 13
-                        elif n >= 11 and n <= 12 and m == 33:
+                        elif n >= 11 and n <= 12 and m == 31:
                             self.M[n][m] = 11
-                        elif n >= 13 and n <= 14 and m == 33:
+                        elif n >= 13 and n <= 14 and m == 31:
                             self.M[n][m] = 12
-                        elif n >= 15 and n <= 16 and m == 33:
+                        elif n >= 15 and n <= 16 and m == 31:
                             self.M[n][m] = 13
                         elif n == 11 and m == 19:
                             self.M[n][m] = 2
@@ -209,11 +209,11 @@ class Juego:
                             self.M[n][m] = 12
                         elif n == 13 and m == 2:
                             self.M[n][m] = 13
-                        elif n == 11 and m == 6:
+                        elif n == 11 and m == 8:
                             self.M[n][m] = 11
-                        elif n == 12 and m == 6:
+                        elif n == 12 and m == 8:
                             self.M[n][m] = 12
-                        elif n == 13 and m == 6:
+                        elif n == 13 and m == 8:
                             self.M[n][m] = 13
                         elif n == 11 and m == 37:
                             self.M[n][m] = 11
@@ -221,11 +221,11 @@ class Juego:
                             self.M[n][m] = 12
                         elif n == 13 and m == 37:
                             self.M[n][m] = 13
-                        elif n == 11 and m == 33:
+                        elif n == 11 and m == 31:
                             self.M[n][m] = 11
-                        elif n == 12 and m == 33:
+                        elif n == 12 and m == 31:
                             self.M[n][m] = 12
-                        elif n == 13 and m == 33:
+                        elif n == 13 and m == 31:
                             self.M[n][m] = 13
                         elif n == 11 and m == 19:
                             self.M[n][m] = 2
@@ -802,12 +802,12 @@ class Barras:
                             M[i + 5][2] = 13
                             M[i + 8][2] = 0
                             M[24][2] = 32
-                            M[i - 1][6] = 11
-                            M[i + 1][6] = 11
-                            M[i + 2][6] = 12
-                            M[i + 5][6] = 13
-                            M[i + 8][6] = 0
-                            M[24][6] = 32
+                            M[i - 1][8] = 11
+                            M[i + 1][8] = 11
+                            M[i + 2][8] = 12
+                            M[i + 5][8] = 13
+                            M[i + 8][8] = 0
+                            M[24][8] = 32
                             juego.setMatriz(M)
                             break
                         else:
@@ -820,11 +820,11 @@ class Barras:
                             M[i + 6][2] = 12
                             M[i + 9][2] = 13
                             M[0][2] = 31
-                            M[i][6] = 0
-                            M[i + 3][6] = 11
-                            M[i + 6][6] = 12
-                            M[i + 9][6] = 13
-                            M[0][6] = 31
+                            M[i][8] = 0
+                            M[i + 3][8] = 11
+                            M[i + 6][8] = 12
+                            M[i + 9][8] = 13
+                            M[0][8] = 31
                             juego.setMatriz(M)
                             break
                         else:
@@ -838,12 +838,12 @@ class Barras:
                             M[i + 5][37] = 13
                             M[i + 8][37] = 0
                             M[24][37] = 32
-                            M[i - 1][33] = 11
-                            M[i + 1][33] = 11
-                            M[i + 2][33] = 12
-                            M[i + 5][33] = 13
-                            M[i + 8][33] = 0
-                            M[24][33] = 32
+                            M[i - 1][31] = 11
+                            M[i + 1][31] = 11
+                            M[i + 2][31] = 12
+                            M[i + 5][31] = 13
+                            M[i + 8][31] = 0
+                            M[24][31] = 32
                             juego.setMatriz(M)
                             break
                         else:
@@ -856,11 +856,11 @@ class Barras:
                             M[i + 6][37] = 12
                             M[i + 9][37] = 13
                             M[0][37] = 31
-                            M[i][33] = 0
-                            M[i + 3][33] = 11
-                            M[i + 6][33] = 12
-                            M[i + 9][33] = 13
-                            M[0][33] = 31
+                            M[i][31] = 0
+                            M[i + 3][31] = 11
+                            M[i + 6][31] = 12
+                            M[i + 9][31] = 13
+                            M[0][31] = 31
                             juego.setMatriz(M)
                             break
                         else:
@@ -874,11 +874,11 @@ class Barras:
                             M[i + 3][2] = 13
                             M[i + 5][2] = 0
                             M[24][2] = 32
-                            M[i - 1][6] = 11
-                            M[i + 1][6] = 12
-                            M[i + 3][6] = 13
-                            M[i + 5][6] = 0
-                            M[24][6] = 32
+                            M[i - 1][8] = 11
+                            M[i + 1][8] = 12
+                            M[i + 3][8] = 13
+                            M[i + 5][8] = 0
+                            M[24][8] = 32
                             juego.setMatriz(M)
                             break
                         else:
@@ -891,11 +891,11 @@ class Barras:
                             M[i + 4][2] = 12
                             M[i + 6][2] = 13
                             M[0][2] = 31
-                            M[i][6] = 0
-                            M[i + 2][6] = 11
-                            M[i + 4][6] = 12
-                            M[i + 6][6] = 13
-                            M[0][6] = 31
+                            M[i][8] = 0
+                            M[i + 2][8] = 11
+                            M[i + 4][8] = 12
+                            M[i + 6][8] = 13
+                            M[0][8] = 31
                             juego.setMatriz(M)
                             break
                         else:
@@ -908,11 +908,11 @@ class Barras:
                             M[i + 3][37] = 13
                             M[i + 5][37] = 0
                             M[24][37] = 32
-                            M[i - 1][33] = 11
-                            M[i + 1][33] = 12
-                            M[i + 3][33] = 13
-                            M[i + 5][33] = 0
-                            M[24][33] = 32
+                            M[i - 1][31] = 11
+                            M[i + 1][31] = 12
+                            M[i + 3][31] = 13
+                            M[i + 5][31] = 0
+                            M[24][31] = 32
                             juego.setMatriz(M)
                             break
                         else:
@@ -925,11 +925,11 @@ class Barras:
                             M[i + 4][37] = 12
                             M[i + 6][37] = 13
                             M[0][37] = 31
-                            M[i][33] = 0
-                            M[i + 2][33] = 11
-                            M[i + 4][33] = 12
-                            M[i + 6][33] = 13
-                            M[0][33] = 31
+                            M[i][31] = 0
+                            M[i + 2][31] = 11
+                            M[i + 4][31] = 12
+                            M[i + 6][31] = 13
+                            M[0][31] = 31
                             juego.setMatriz(M)
                             break
                         else:
@@ -943,11 +943,11 @@ class Barras:
                             M[i + 1][2] = 13
                             M[i + 2][2] = 0
                             M[24][2] = 32
-                            M[i - 1][6] = 11
-                            M[i][6] = 12
-                            M[i + 1][6] = 13
-                            M[i + 2][6] = 0
-                            M[24][6] = 32
+                            M[i - 1][8] = 11
+                            M[i][8] = 12
+                            M[i + 1][8] = 13
+                            M[i + 2][8] = 0
+                            M[24][8] = 32
                             juego.setMatriz(M)
                             break
                         else:
@@ -960,11 +960,11 @@ class Barras:
                             M[i + 2][2] = 12
                             M[i + 3][2] = 13
                             M[0][2] = 31
-                            M[i][6] = 0
-                            M[i + 1][6] = 11
-                            M[i + 2][6] = 12
-                            M[i + 3][6] = 13
-                            M[0][6] = 31
+                            M[i][8] = 0
+                            M[i + 1][8] = 11
+                            M[i + 2][8] = 12
+                            M[i + 3][8] = 13
+                            M[0][8] = 31
                             juego.setMatriz(M)
                             break
                         else:
@@ -977,11 +977,11 @@ class Barras:
                             M[i + 1][37] = 13
                             M[i + 2][37] = 0
                             M[24][37] = 32
-                            M[i - 1][33] = 11
-                            M[i][33] = 12
-                            M[i + 1][33] = 13
-                            M[i + 2][33] = 0
-                            M[24][33] = 32
+                            M[i - 1][31] = 11
+                            M[i][31] = 12
+                            M[i + 1][31] = 13
+                            M[i + 2][31] = 0
+                            M[24][31] = 32
                             juego.setMatriz(M)
                             break
                         else:
@@ -994,11 +994,11 @@ class Barras:
                             M[i + 2][37] = 12
                             M[i + 3][37] = 13
                             M[0][37] = 31
-                            M[i][33] = 0
-                            M[i + 1][33] = 11
-                            M[i + 2][33] = 12
-                            M[i + 3][33] = 13
-                            M[0][33] = 31
+                            M[i][31] = 0
+                            M[i + 1][31] = 11
+                            M[i + 2][31] = 12
+                            M[i + 3][31] = 13
+                            M[0][31] = 31
                             juego.setMatriz(M)
                             break
                         else:
