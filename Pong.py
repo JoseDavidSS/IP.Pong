@@ -523,8 +523,8 @@ class Juego:
                                        "y puede competir tanto contra un oponente controlado por computadora, como con otro jugador\n"
                                        "humano que controla una segunda paleta en la parte opuesta. Los jugadores pueden usar las paletas\n"
                                        "para pegarle a la pelota hacia un lado u otro. El objetivo consiste en que uno de los jugadores consiga \n"
-                                       "más puntos que el oponente al finalizar el juego. Estos puntos se obtienen cuando el jugador adversario \n"
-                                       "falla al devolver la pelota.",
+                                       "11 puntos para pasar al siguiente nivel. Estos puntos se obtienen cuando el jugador adversario \n"
+                                       "falla al devolver la pelota. Para ganar un jugador debe ganar dos de los tres niveles.",
                                   font=("Arial", 17),
                                   bg="black",
                                   fg="white",
