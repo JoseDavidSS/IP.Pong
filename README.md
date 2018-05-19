@@ -4,6 +4,12 @@ Pygame versión 1.9.3
 
 NO eliminar nada de esta carpeta para que el juego funcione correctamente.
 
+Para jugar:
+
+-Controlar el jugador 1: con las teclas "w" y "s"
+
+-Controlar el jugador 2: con las teclas "Flecha Arriba" y "Flecha Abajo"
+
 Es necesario tener Pygame instalado y utilizar el programa en windows, ya que se utiliza la librería winsound es cierta parte del juego
 
 Descarga Pygame de aqui https://www.pygame.org/download.shtml, elije un archivo .msi o .exe, que sea compatible con tu computadora (32 o 64 bits)
