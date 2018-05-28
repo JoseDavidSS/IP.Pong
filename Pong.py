@@ -48,6 +48,8 @@ p1 = []
 p2 = []
 p3 = []
 
+trampolines = 0
+
 #Iniciación de pygame
 pygame.init()
 
@@ -278,6 +280,96 @@ class Juego:
                         else:
                             self.M[n][m] = 0
     #Métodos para obtener la matriz del juego y para sobreescribirla
+    def agregar_trampolines(self):
+        if nivel == 1:
+            ran1 = random.randint(6, 10)
+            ran2 = random.randint(6, 10)
+            ran3 = random.randint(17, 21)
+            ran4 = random.randint(17, 21)
+            self.M[ran1 - 1][15] = 11
+            self.M[ran1][15] = 12
+            self.M[ran1 + 1][15] = 13
+            self.M[ran2 - 1][23] = 11
+            self.M[ran2][23] = 12
+            self.M[ran2 + 1][23] = 13
+            self.M[ran3 - 1][15] = 11
+            self.M[ran3][15] = 12
+            self.M[ran3 + 1][15] = 13
+            self.M[ran4 - 1][23] = 11
+            self.M[ran4][23] = 12
+            self.M[ran4 + 1][23] = 13
+        elif nivel == 2:
+            ran3 = random.randint(6, 10)
+            ran4 = random.randint(6, 10)
+            ran5 = random.randint(17, 21)
+            ran6 = random.randint(17, 21)
+            ran7 = random.randint(17, 21)
+            ran8 = random.randint(19, 21)
+            self.M[5][16] = 11
+            self.M[6][16] = 12
+            self.M[7][16] = 13
+            self.M[5][22] = 11
+            self.M[6][22] = 12
+            self.M[7][22] = 13
+            self.M[ran5 - 1][16] = 11
+            self.M[ran5][16] = 12
+            self.M[ran5 + 1][16] = 13
+            self.M[ran6 - 1][22] = 11
+            self.M[ran6][22] = 12
+            self.M[ran6 + 1][22] = 13
+            self.M[ran3 - 1][12] = 11
+            self.M[ran3][12] = 12
+            self.M[ran3 + 1][12] = 13
+            self.M[ran4 - 1][26] = 11
+            self.M[ran4][26] = 12
+            self.M[ran4 + 1][26] = 13
+            self.M[ran7 - 1][12] = 11
+            self.M[ran7][12] = 12
+            self.M[ran7 + 1][12] = 13
+            self.M[ran8 - 1][26] = 11
+            self.M[ran8][26] = 12
+            self.M[ran8 + 1][26] = 13
+        else:
+            ran1 = random.randint(6, 8)
+            ran2 = random.randint(6, 9)
+            ran4 = random.randint(6, 10)
+            ran5 = random.randint(17, 21)
+            ran6 = random.randint(17, 21)
+            ran7 = random.randint(17, 21)
+            ran8 = random.randint(19, 21)
+            ran9 = random.randint(6, 20)
+            ran10 = random.randint(6, 20)
+            self.M[ran1 - 1][16] = 11
+            self.M[ran1][16] = 12
+            self.M[ran1 + 1][16] = 13
+            self.M[ran2 - 1][22] = 11
+            self.M[ran2][22] = 12
+            self.M[ran2 + 1][22] = 13
+            self.M[ran5 - 1][16] = 11
+            self.M[ran5][16] = 12
+            self.M[ran5 + 1][16] = 13
+            self.M[ran6 - 1][22] = 11
+            self.M[ran6][22] = 12
+            self.M[ran6 + 1][22] = 13
+            self.M[5][12] = 11
+            self.M[6][12] = 12
+            self.M[7][12] = 13
+            self.M[ran4 - 1][26] = 11
+            self.M[ran4][26] = 12
+            self.M[ran4 + 1][26] = 13
+            self.M[ran7 - 1][12] = 11
+            self.M[ran7][12] = 12
+            self.M[ran7 + 1][12] = 13
+            self.M[ran8 - 1][26] = 11
+            self.M[ran8][26] = 12
+            self.M[ran8 + 1][26] = 13
+            self.M[ran9 - 1][5] = 11
+            self.M[ran9][5] = 12
+            self.M[ran9 + 1][5] = 13
+            self.M[ran10 - 1][34] = 11
+            self.M[ran10][34] = 12
+            self.M[ran10 + 1][34] = 13
+
     def getMatriz(self):
         return self.M
     def setMatriz(self, nuevo):
@@ -542,7 +634,6 @@ class Juego:
             res = res.replace(",", " ")
             txt += res + "\n"
             return juego.imprimirMatriz(M, n, i + 1, txt, "")
-
     def ventanaMatriz(self):
         ventanam = Tk()
         ventanam.title("Matriz Actual")
@@ -596,6 +687,8 @@ class Juego:
         global color1
         global color2
         global nueva_puntuacion
+        global trampolines
+        trampolines = 0
         nueva_puntuacion = 0
         color1 = (0, 0, 0)
         color2 = (255, 255, 255)
@@ -643,6 +736,22 @@ class Juego:
             ventana.destroy()
             juego.ventana_instrucciones()
 
+        def activar_desactivar_t():
+            global trampolines
+            if trampolines == 1:
+                act_des.config(text = "Desactivado")
+                trampolines = 0
+            else:
+                act_des.config(text="Activado")
+                trampolines = 1
+
+        bt_trampolines = Button(canvas,
+                                text ="Trampolines",
+                                font=("Fixedsys", 10),
+                                bg="white",
+                                command=activar_desactivar_t)
+        bt_trampolines.place(x=440, y=170)
+
         #Botones para jugar
         un_jugador = Button(canvas,
                             text="Un jugador",
@@ -650,7 +759,7 @@ class Juego:
                             width=14,
                             bg="white",
                             command=jugador_CPU_aux)
-        un_jugador.place(x=425, y=250)
+        un_jugador.place(x=425, y=220)
 
         bt_singles = Button(canvas,
                             text="Singles",
@@ -687,6 +796,13 @@ class Juego:
         bt_instrucciones.place(x=425, y=650)
 
         #Labels de la ventana
+        act_des = Label(canvas,
+                        text="Desactivado",
+                        font=("Fixedsys", 10),
+                        bg="black",
+                        fg="white")
+        act_des.place(x=543, y=172)
+
         titulo = Label(canvas,
                        text="PONG",
                        font=("Fixedsys", 78),
@@ -701,12 +817,16 @@ class Juego:
     def jugador_CPU(self):
         global t_inicio
         global cerrar
+        if trampolines == 1:
+            juego.agregar_trampolines()
         t_inicio = time()
         barra2.setCPU(1)
         cerrar = False
     def jugador_singles(self):
         global t_inicio
         global cerrar
+        if trampolines == 1:
+            juego.agregar_trampolines()
         t_inicio = time()
         barra2.setCPU(0)
         cerrar = False
@@ -714,10 +834,12 @@ class Juego:
         global t_inicio
         global cerrar
         global barras
-        t_inicio = time()
         barras = 2
         barra2.setCPU(0)
         juego.hacer_matriz()
+        if trampolines == 1:
+            juego.agregar_trampolines()
+        t_inicio = time()
         cerrar = False
 
     #Método para abrir la ventana que explica los modos de juego
@@ -887,6 +1009,8 @@ class Bola:
                 barra2.setPuntos(0)
                 barra1.setPuntos(0)
                 juego.hacer_matriz()
+                if trampolines == 1:
+                    juego.agregar_trampolines()
                 pos = [11, 19]
                 bola.setPosicion(pos)
                 ganador = barra2.getNiveles()
@@ -906,6 +1030,8 @@ class Bola:
                 pos = [11, 19]
                 bola.setPosicion(pos)
                 juego.hacer_matriz()
+                if trampolines == 1:
+                    juego.agregar_trampolines()
                 sleep(0.1)
         if M[pos[0] + vel[0]][pos[1] + vel[1]] == 42:
             if barra1.getPuntos() > 9:
@@ -917,6 +1043,8 @@ class Bola:
                 barra1.setPuntos(0)
                 barra2.setPuntos(0)
                 juego.hacer_matriz()
+                if trampolines == 1:
+                    juego.agregar_trampolines()
                 pos = [11, 19]
                 bola.setPosicion(pos)
                 ganador = barra1.getNiveles()
@@ -936,6 +1064,8 @@ class Bola:
                 pos = [11, 19]
                 bola.setPosicion(pos)
                 juego.hacer_matriz()
+                if trampolines == 1:
+                    juego.agregar_trampolines()
                 sleep(0.1)
         else:
             M[pos[0]][pos[1]] = 0
