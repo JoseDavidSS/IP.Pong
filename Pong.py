@@ -50,6 +50,8 @@ p3 = []
 
 trampolines = 0
 
+practica = 0
+
 #Iniciación de pygame
 pygame.init()
 
@@ -336,7 +338,7 @@ class Juego:
             ran5 = random.randint(17, 21)
             ran6 = random.randint(17, 21)
             ran7 = random.randint(17, 21)
-            ran8 = random.randint(19, 21)
+            ran8 = random.randint(20, 21)
             ran9 = random.randint(6, 20)
             ran10 = random.randint(6, 20)
             self.M[ran1 - 1][16] = 11
@@ -369,7 +371,18 @@ class Juego:
             self.M[ran10 - 1][34] = 11
             self.M[ran10][34] = 12
             self.M[ran10 + 1][34] = 13
-
+    def modo_practica(self):
+        for i in range(filas):
+            self.M[i][39] = 33
+        if nivel == 1:
+            for i in range(7, 16):
+                self.M[i][37] = 0
+        elif nivel == 2:
+            for i in range(11, 17):
+                self.M[i][37] = 0
+        else:
+            for i in range(11, 14):
+                self.M[i][37] = 0
     def getMatriz(self):
         return self.M
     def setMatriz(self, nuevo):
@@ -675,7 +688,6 @@ class Juego:
         bt_cerrar.place(x=1200, y=450)
 
         ventanam.mainloop()
-
     #Método para abrir la ventana del menú principal
     def menu_principal(self):
         #Se reinician las globales a sus valores originales y atributos
@@ -688,6 +700,8 @@ class Juego:
         global color2
         global nueva_puntuacion
         global trampolines
+        global practica
+        practica = 0
         trampolines = 0
         nueva_puntuacion = 0
         color1 = (0, 0, 0)
@@ -736,6 +750,10 @@ class Juego:
             ventana.destroy()
             juego.ventana_instrucciones()
 
+        def ventana_practica_aux():
+            ventana.destroy()
+            juego.ventana_practica()
+
         def activar_desactivar_t():
             global trampolines
             if trampolines == 1:
@@ -751,6 +769,14 @@ class Juego:
                                 bg="white",
                                 command=activar_desactivar_t)
         bt_trampolines.place(x=440, y=170)
+
+        bt_practica = Button(canvas,
+                             text="Práctica",
+                             font=("Fixedsys", 20),
+                             width=14,
+                             bg="white",
+                             command=ventana_practica_aux)
+        bt_practica.place(x=425, y=290)
 
         #Botones para jugar
         un_jugador = Button(canvas,
@@ -812,7 +838,6 @@ class Juego:
 
         # Fin del loop
         ventana.mainloop()
-
     #Funciones para iniciar los modos de juego
     def jugador_CPU(self):
         global t_inicio
@@ -841,7 +866,15 @@ class Juego:
             juego.agregar_trampolines()
         t_inicio = time()
         cerrar = False
-
+    def jugador_practica(self):
+        global practica
+        global cerrar
+        global comprobar
+        comprobar = 0
+        practica = 1
+        juego.hacer_matriz()
+        juego.modo_practica()
+        cerrar = False
     #Método para abrir la ventana que explica los modos de juego
     def ventana_modos(self):
         #Creación de la ventana y su colocación del canvas
@@ -895,7 +928,6 @@ class Juego:
                                     bg="black",
                                     fg="white")
         lb_singles.place(x=410, y=125)
-
     #Método para abrir la ventana de las instrucciones del juego
     def ventana_instrucciones(self):
         #Creación de la ventana y su canvas
@@ -951,6 +983,140 @@ class Juego:
                                       fg="white",
                                       justify="left")
         descripcion_controles.place(x=10, y=400)
+    def encender_pygame(self):
+        pygame.init()
+        juego.menu_principal()
+    def ventana_practica(self):
+        global Fps
+        global nivel
+        nivel = 1
+        Fps = 20
+
+        vprac = Tk()
+        vprac.title("PRÁCTICA")
+        vprac.minsize(600, 430)
+        vprac.maxsize(600, 430)
+
+        pcan = Canvas(vprac, width = 600, height = 430, bg = "black")
+        pcan.place(x=-2, y=-2)
+        pcan.pack()
+
+        def vlento():
+            global Fps
+            Fps = 20
+            vel.config(text = "Velocidad Actual: Lento")
+
+        def vnormal():
+            global Fps
+            Fps = 30
+            vel.config(text="Velocidad Actual: Normal")
+
+        def vrapida():
+            global Fps
+            Fps = 35
+            vel.config(text="Velocidad Actual: Rapido")
+
+        def blarga():
+            global nivel
+            nivel = 1
+            lar.config(text="Largo de la Barra Actual: Larga")
+
+        def bmedia():
+            global nivel
+            nivel = 2
+            lar.config(text="Largo de la Barra Actual: Mediana")
+
+        def bcorta():
+            global nivel
+            nivel = 3
+            lar.config(text="Largo de la Barra Actual: Corta")
+
+        def salirm():
+            vprac.destroy()
+            juego.menu_principal()
+
+        def jugar():
+            vprac.destroy()
+            juego.jugador_practica()
+
+        elige = Label(pcan,
+                      text = "Elige la velocidad del juego y el largo de la barra",
+                      font=("Fixedsys", 16),
+                      bg="black",
+                      fg="white")
+        elige.place(x = 30, y = 30)
+
+        vel = Label(pcan,
+                    text="Velocidad Actual: Lento",
+                    font=("Fixedsys", 16),
+                    bg="black",
+                    fg="white")
+        vel.place(x=160, y=90)
+
+        lento = Button(pcan,
+                       text="Lento",
+                       font=("Fixedsys", 14),
+                       bg="white",
+                       command = vlento)
+        lento.place(x=150, y=130)
+
+        normal = Button(pcan,
+                        text="Normal",
+                        font=("Fixedsys", 14),
+                        bg="white",
+                        command=vnormal)
+        normal.place(x=250, y=130)
+
+        rapido = Button(pcan,
+                        text="Rapido",
+                        font=("Fixedsys", 14),
+                        bg="white",
+                        command=vrapida)
+        rapido.place(x=355, y=130)
+
+        lar = Label(pcan,
+                    text="Largo de la Barra Actual: Larga",
+                    font=("Fixedsys", 16),
+                    bg="black",
+                    fg="white")
+        lar.place(x=120, y=185)
+
+        larga = Button(pcan,
+                       text="Larga",
+                       font=("Fixedsys", 14),
+                       bg="white",
+                       command=blarga)
+        larga.place(x=150, y=225)
+
+        mediana = Button(pcan,
+                         text="Mediana",
+                         font=("Fixedsys", 14),
+                         bg="white",
+                         command=bmedia)
+        mediana.place(x=250, y=225)
+
+        corta = Button(pcan,
+                       text="Corta",
+                       font=("Fixedsys", 14),
+                       bg="white",
+                       command=bcorta)
+        corta.place(x=368, y=225)
+
+        jugar = Button(pcan,
+                       text="JUGAR",
+                       font=("Fixedsys", 18),
+                       bg="white",
+                       command=jugar)
+        jugar.place(x = 170, y = 310)
+
+        salir = Button(pcan,
+                       text="Salir",
+                       font=("Fixedsys", 18),
+                       bg="white",
+                       command = salirm)
+        salir.place(x = 320, y = 310)
+
+        vprac.mainloop()
 
 class Bola:
     #Atributos de la bola
@@ -980,27 +1146,31 @@ class Bola:
         if M[pos[0] + vel[0]][pos[1] + vel[1]] == 32 or M[pos[0] + vel[0]][pos[1] + vel[1]] == 31:
             vel = [-vel[0], vel[1]]
             bola.setVelocidad(vel)
-            juego.setMatriz(M)
+        if M[pos [0] + vel[0]][pos[1] + vel[1]] == 33:
+            vel = [vel[0], -vel[1]]
+            pygame.mixer.music.load("Blip.wav")
+            pygame.mixer.music.play()
         if M[pos[0] + vel[0]][pos[1] + vel[1]] == 11:
             pygame.mixer.music.load("Blip.wav")
             pygame.mixer.music.play()
             vel = [-1, -vel[1]]
             bola.setVelocidad(vel)
-            juego.setMatriz(M)
         if M[pos[0] + vel[0]][pos[1] + vel[1]] == 12:
             pygame.mixer.music.load("Blip.wav")
             pygame.mixer.music.play()
             vel = [0, -vel[1]]
             bola.setVelocidad(vel)
-            juego.setMatriz(M)
         if M[pos[0] + vel[0]][pos[1] + vel[1]] == 13:
             pygame.mixer.music.load("Blip.wav")
             pygame.mixer.music.play()
             vel = [1, -vel[1]]
             bola.setVelocidad(vel)
-            juego.setMatriz(M)
         if M[pos[0] + vel[0]][pos[1] + vel[1]] == 41:
-            if barra2.getPuntos() > 9:
+            if practica == 1 and barra2.getPuntos() > 9:
+                barra1.setNiveles(2)
+                pygame.mixer.music.load("Anota.wav")
+                pygame.mixer.music.play()
+            elif barra2.getPuntos() > 9:
                 nivel += 1
                 if nivel == 2:
                     Fps = 30
@@ -1030,6 +1200,8 @@ class Bola:
                 pos = [11, 19]
                 bola.setPosicion(pos)
                 juego.hacer_matriz()
+                if practica == 1:
+                    juego.modo_practica()
                 if trampolines == 1:
                     juego.agregar_trampolines()
                 sleep(0.1)
@@ -1510,9 +1682,9 @@ while not cerrar:
         barra1.moverse("Arriba1")
     if tecla[pygame.K_s] and juego.getMatriz()[24][2] == 32:
         barra1.moverse("Abajo1")
-    if tecla[pygame.K_UP] and juego.getMatriz()[0][37] == 31 and barra2.getCPU() == 0:
+    if tecla[pygame.K_UP] and juego.getMatriz()[0][37] == 31 and barra2.getCPU() == 0 and practica != 1:
         barra1.moverse("Arriba2")
-    if tecla[pygame.K_DOWN] and juego.getMatriz()[24][37] == 32 and barra2.getCPU() == 0:
+    if tecla[pygame.K_DOWN] and juego.getMatriz()[24][37] == 32 and barra2.getCPU() == 0 and practica != 1:
         barra1.moverse("Abajo2")
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
@@ -1657,7 +1829,11 @@ while not cerrar:
         t_final = time()
         t_total = int(t_final - t_inicio)
         leerpuntuaciones()
-        if t_total <= int(p1[2]):
+        if practica == 1:
+            cerrar = True
+            pygame.quit()
+            juego.encender_pygame()
+        elif t_total <= int(p1[2]):
             nueva_puntuacion = 1
             cerrar = True
             pygame.quit()
