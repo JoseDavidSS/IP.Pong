@@ -6,6 +6,14 @@ from tkinter import messagebox
 import random
 import winsound
 from threading import Thread
+import serial
+
+ser = serial.Serial('COM3', 9600, timeout=0)
+
+w = False
+s = False
+up = False
+down = False
 
 #Globales utilizadas por el programa
 
@@ -1496,6 +1504,21 @@ while not cerrar:
         pantalla.fill(color1)
         comprobar = 1
 
+    try:
+        entrada = str(ser.readline())
+        dato = entrada[entrada.index("'") + 1: entrada.index("\\")]
+        if (dato == "w") and juego.getMatriz()[0][2] == 31 :
+            barra1.moverse("Arriba1")
+        if (dato == "s") and juego.getMatriz()[24][2] == 32 :
+            barra1.moverse("Abajo1")
+        if (dato == "up"):
+            up = True
+        if (dato == "down"):
+            down = True
+    except:
+        pass
+
+
     #Método de pygame para controlar la velocidad del juego con los Fps
     reloj.tick(Fps)
     #Se invoca el método de movimiento de la bola
@@ -1506,10 +1529,6 @@ while not cerrar:
     ran = hacer_random()
 
     #Casos para detectar la tecla presionada y mover alguna de las barras o cerrar el juego
-    if tecla[pygame.K_w] and juego.getMatriz()[0][2] == 31:
-        barra1.moverse("Arriba1")
-    if tecla[pygame.K_s] and juego.getMatriz()[24][2] == 32:
-        barra1.moverse("Abajo1")
     if tecla[pygame.K_UP] and juego.getMatriz()[0][37] == 31 and barra2.getCPU() == 0:
         barra1.moverse("Arriba2")
     if tecla[pygame.K_DOWN] and juego.getMatriz()[24][37] == 32 and barra2.getCPU() == 0:
