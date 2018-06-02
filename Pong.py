@@ -622,6 +622,7 @@ class Juego:
 
         juego.menu_principal()
     def pausa(self):
+        global volumen
         a = False
         while not a:
             for evento in pygame.event.get():
@@ -636,6 +637,11 @@ class Juego:
                     if evento.key == pygame.K_m:
                         t2 = Thread(target=juego.ventanaMatriz(), args=())
                         t2.start()
+                    if evento.key == pygame.K_v:
+                        if volumen == 0:
+                            volumen = 1
+                        else:
+                            volumen = 0
     def imprimirMatriz(self, M, n, i, txt, res):
         if i == (n - 1):
             res = str(M[i])
