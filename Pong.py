@@ -60,6 +60,8 @@ trampolines = 0
 
 practica = 0
 
+volumen = 0
+
 #Iniciación de pygame
 pygame.init()
 
@@ -449,7 +451,8 @@ class Juego:
 
         #Función que se activa con un thread para reproducir el sonido de ganador
         def sonido_ganador():
-            winsound.PlaySound("Ganador.wav", winsound.SND_ALIAS)
+            if volumen == 0:
+                winsound.PlaySound("Ganador.wav", winsound.SND_ALIAS)
 
         #Botones y labels de la ventana
         bt_listo = Button(canvasg,
@@ -548,7 +551,8 @@ class Juego:
         bt_salir.place(x=300, y=400)
 
         def sonido_puntuacion():
-            winsound.PlaySound("Puntuacion.wav", winsound.SND_ALIAS)
+            if volumen == 0:
+                winsound.PlaySound("Puntuacion.wav", winsound.SND_ALIAS)
 
         if barra1.getNiveles() == 2:
             gano = Label(canvasn,
@@ -626,6 +630,7 @@ class Juego:
 
         juego.menu_principal()
     def pausa(self):
+        global volumen
         a = False
         while not a:
             for evento in pygame.event.get():
@@ -633,12 +638,18 @@ class Juego:
                     pygame.quit()
                 if evento.type == pygame.KEYDOWN:
                     if evento.key == pygame.K_p:
-                        pygame.mixer.music.load("Pausa.wav")
-                        pygame.mixer.music.play()
+                        if volumen == 0:
+                            pygame.mixer.music.load("Pausa.wav")
+                            pygame.mixer.music.play()
                         a = True
                     if evento.key == pygame.K_m:
                         t2 = Thread(target=juego.ventanaMatriz(), args=())
                         t2.start()
+                    if evento.key == pygame.K_v:
+                        if volumen == 0:
+                            volumen = 1
+                        else:
+                            volumen = 0
     def imprimirMatriz(self, M, n, i, txt, res):
         if i == (n - 1):
             res = str(M[i])
@@ -1156,28 +1167,33 @@ class Bola:
             bola.setVelocidad(vel)
         if M[pos [0] + vel[0]][pos[1] + vel[1]] == 33:
             vel = [vel[0], -vel[1]]
-            pygame.mixer.music.load("Blip.wav")
-            pygame.mixer.music.play()
+            if volumen == 0:
+                pygame.mixer.music.load("Blip.wav")
+                pygame.mixer.music.play()
         if M[pos[0] + vel[0]][pos[1] + vel[1]] == 11:
-            pygame.mixer.music.load("Blip.wav")
-            pygame.mixer.music.play()
+            if volumen == 0:
+                pygame.mixer.music.load("Blip.wav")
+                pygame.mixer.music.play()
             vel = [-1, -vel[1]]
             bola.setVelocidad(vel)
         if M[pos[0] + vel[0]][pos[1] + vel[1]] == 12:
-            pygame.mixer.music.load("Blip.wav")
-            pygame.mixer.music.play()
+            if volumen == 0:
+                pygame.mixer.music.load("Blip.wav")
+                pygame.mixer.music.play()
             vel = [0, -vel[1]]
             bola.setVelocidad(vel)
         if M[pos[0] + vel[0]][pos[1] + vel[1]] == 13:
-            pygame.mixer.music.load("Blip.wav")
-            pygame.mixer.music.play()
+            if volumen == 0:
+                pygame.mixer.music.load("Blip.wav")
+                pygame.mixer.music.play()
             vel = [1, -vel[1]]
             bola.setVelocidad(vel)
         if M[pos[0] + vel[0]][pos[1] + vel[1]] == 41:
             if practica == 1 and barra2.getPuntos() > 9:
                 barra1.setNiveles(2)
-                pygame.mixer.music.load("Anota.wav")
-                pygame.mixer.music.play()
+                if volumen == 0:
+                    pygame.mixer.music.load("Anota.wav")
+                    pygame.mixer.music.play()
             elif barra2.getPuntos() > 9:
                 nivel += 1
                 if nivel == 2:
@@ -1194,13 +1210,15 @@ class Bola:
                 ganador = barra2.getNiveles()
                 ganador += 1
                 if ganador != 2:
-                    pygame.mixer.music.load("Nivel.wav")
-                    pygame.mixer.music.play()
+                    if volumen == 0:
+                        pygame.mixer.music.load("Nivel.wav")
+                        pygame.mixer.music.play()
                 barra2.setNiveles(ganador)
                 sleep(0.5)
             else:
-                pygame.mixer.music.load("Anota.wav")
-                pygame.mixer.music.play()
+                if volumen == 0:
+                    pygame.mixer.music.load("Anota.wav")
+                    pygame.mixer.music.play()
                 punto = barra2.getPuntos()
                 punto += 1
                 barra2.setPuntos(punto)
@@ -1230,13 +1248,15 @@ class Bola:
                 ganador = barra1.getNiveles()
                 ganador += 1
                 if ganador != 2:
-                    pygame.mixer.music.load("Nivel.wav")
-                    pygame.mixer.music.play()
+                    if volumen == 0:
+                        pygame.mixer.music.load("Nivel.wav")
+                        pygame.mixer.music.play()
                 barra1.setNiveles(ganador)
                 sleep(0.5)
             else:
-                pygame.mixer.music.load("Anota.wav")
-                pygame.mixer.music.play()
+                if volumen == 0:
+                    pygame.mixer.music.load("Anota.wav")
+                    pygame.mixer.music.play()
                 punto = barra1.getPuntos()
                 punto += 1
                 barra1.setPuntos(punto)
@@ -1712,9 +1732,15 @@ while not cerrar:
             if evento.key == pygame.K_c:
                 juego.cambiarColor()
             if evento.key == pygame.K_p:
-                pygame.mixer.music.load("Pausa.wav")
-                pygame.mixer.music.play()
+                if volumen == 0:
+                    pygame.mixer.music.load("Pausa.wav")
+                    pygame.mixer.music.play()
                 juego.pausa()
+            if evento.key == pygame.K_v:
+                if volumen == 0:
+                    volumen = 1
+                else:
+                    volumen = 0
     #Caso del movimiento de la barra 2, en caso de que sea un cpu
     #Funciona de manera similar al método de movimiento de la barras manual, con la diferencia de que esta seguirá a la posicion de la fila de la bola
     #Para que no sea imposible, se le pone una restricción en el nivel 1 que solo tiene permitido moverse cuando el número azar conseguido sea 0 y la bola se encuentre en cierto rango, para que no tenga problemas con la matriz
