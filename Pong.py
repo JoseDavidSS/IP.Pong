@@ -10,11 +10,6 @@ import serial
 
 ser = serial.Serial('COM3', 9600, timeout=0)
 
-w = False
-s = False
-up = False
-down = False
-
 #Globales utilizadas por el programa
 
 #Variable principal del while de pygame
@@ -633,6 +628,22 @@ class Juego:
         global volumen
         a = False
         while not a:
+            try:
+                entrada = str(ser.readline())
+                dato = entrada[entrada.index("'") + 1: entrada.index("\\")]
+                if (dato == "p"):
+                    if volumen == 0:
+                        pygame.mixer.music.load("Pausa.wav")
+                        pygame.mixer.music.play()
+                    a = True
+                if(dato == "v"):
+                    if volumen == 0:
+                        volumen = 1
+                    else:
+                        volumen = 0
+            except:
+                pass
+
             for evento in pygame.event.get():
                 if evento.type == pygame.QUIT:
                     pygame.quit()
@@ -889,6 +900,8 @@ class Juego:
         global practica
         global cerrar
         global comprobar
+        global trampolines
+        trampolines = 0
         comprobar = 0
         practica = 1
         juego.hacer_matriz()
@@ -1703,13 +1716,24 @@ while not cerrar:
             barra1.moverse("Arriba1")
         if (dato == "s") and juego.getMatriz()[24][2] == 32 :
             barra1.moverse("Abajo1")
-        if (dato == "up"):
-            up = True
-        if (dato == "down"):
-            down = True
+        if (dato == "up") and barra2.getCPU() == 0 and practica != 1:
+            barra2.moverse("Arriba2")
+        if (dato == "down") and barra2.getCPU() == 0 and practica != 1:
+            barra2.moverse("Abajo2")
+        if (dato == "p"):
+            if volumen == 0:
+                pygame.mixer.music.load("Pausa.wav")
+                pygame.mixer.music.play()
+            juego.pausa()
+        if(dato == "v"):
+            if volumen == 0:
+                volumen = 1
+            else:
+                volumen = 0
+        if(dato == "c"):
+            juego.cambiarColor()
     except:
         pass
-
 
     #Método de pygame para controlar la velocidad del juego con los Fps
     reloj.tick(Fps)
@@ -1719,12 +1743,15 @@ while not cerrar:
     tecla = pygame.key.get_pressed()
     #Variable que obtiene un valor al azar entre 0 y 1
     ran = hacer_random()
-
     #Casos para detectar la tecla presionada y mover alguna de las barras o cerrar el juego
-    if tecla[pygame.K_UP] and juego.getMatriz()[0][37] == 31 and barra2.getCPU() == 0:
-        barra1.moverse("Arriba2")
+    if tecla[pygame.K_w] and juego.getMatriz()[0][2] == 31:
+        barra1.moverse("Arriba1")
+    if tecla[pygame.K_s] and juego.getMatriz()[24][2] == 32:
+        barra1.moverse("Abajo1")
+    if tecla[pygame.K_UP] and juego.getMatriz()[0][37] == 31 and barra2.getCPU() == 0 and practica != 1:
+        barra2.moverse("Arriba2")
     if tecla[pygame.K_DOWN] and juego.getMatriz()[24][37] == 32 and barra2.getCPU() == 0 and practica != 1:
-        barra1.moverse("Abajo2")
+        barra2.moverse("Abajo2")
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
             pygame.quit()
