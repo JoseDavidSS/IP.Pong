@@ -870,6 +870,7 @@ class Juego:
         ventana.mainloop()
     #Funciones para iniciar los modos de juego
     def jugador_CPU(self):
+        ser.write(b"0")
         global t_inicio
         global cerrar
         if trampolines == 1:
@@ -878,6 +879,7 @@ class Juego:
         barra2.setCPU(1)
         cerrar = False
     def jugador_singles(self):
+        ser.write(b"0")
         global t_inicio
         global cerrar
         if trampolines == 1:
@@ -886,6 +888,7 @@ class Juego:
         barra2.setCPU(0)
         cerrar = False
     def jugador_doubles(self):
+        ser.write(b"0")
         global t_inicio
         global cerrar
         global barras
@@ -897,6 +900,7 @@ class Juego:
         t_inicio = time()
         cerrar = False
     def jugador_practica(self):
+        ser.write(b"0")
         global practica
         global cerrar
         global comprobar
@@ -1208,6 +1212,7 @@ class Bola:
                     pygame.mixer.music.load("Anota.wav")
                     pygame.mixer.music.play()
             elif barra2.getPuntos() > 9:
+                ser.write(b"0")
                 nivel += 1
                 if nivel == 2:
                     Fps = 30
@@ -1234,6 +1239,26 @@ class Bola:
                     pygame.mixer.music.play()
                 punto = barra2.getPuntos()
                 punto += 1
+                if punto == 1:
+                    ser.write(b"A")
+                if punto == 2:
+                    ser.write(b"B")
+                if punto == 3:
+                    ser.write(b"C")
+                if punto == 4:
+                    ser.write(b"D")
+                if punto == 5:
+                    ser.write(b"E")
+                if punto == 6:
+                    ser.write(b"F")
+                if punto == 7:
+                    ser.write(b"G")
+                if punto == 8:
+                    ser.write(b"H")
+                if punto == 9:
+                    ser.write(b"I")
+                if punto == 10:
+                    ser.write(b"J")
                 barra2.setPuntos(punto)
                 bola.setVelocidad([1,1])
                 pos = [11, 19]
@@ -1247,6 +1272,7 @@ class Bola:
         if M[pos[0] + vel[0]][pos[1] + vel[1]] == 42:
             if barra1.getPuntos() > 9:
                 nivel += 1
+                ser.write(b"0")
                 if nivel == 2:
                     Fps = 30
                 if nivel == 3:
@@ -1272,6 +1298,26 @@ class Bola:
                     pygame.mixer.music.play()
                 punto = barra1.getPuntos()
                 punto += 1
+                if punto == 1:
+                    ser.write(b"1")
+                if punto == 2:
+                    ser.write(b"2")
+                if punto == 3:
+                    ser.write(b"3")
+                if punto == 4:
+                    ser.write(b"4")
+                if punto == 5:
+                    ser.write(b"5")
+                if punto == 6:
+                    ser.write(b"6")
+                if punto == 7:
+                    ser.write(b"7")
+                if punto == 8:
+                    ser.write(b"8")
+                if punto == 9:
+                    ser.write(b"9")
+                if punto == 10:
+                    ser.write(b"!")
                 barra1.setPuntos(punto)
                 bola.setVelocidad([1, 1])
                 pos = [11, 19]
@@ -1901,6 +1947,7 @@ while not cerrar:
         t_final = time()
         t_total = int(t_final - t_inicio)
         leerpuntuaciones()
+        ser.write(b"Z")
         if practica == 1:
             cerrar = True
             pygame.quit()
