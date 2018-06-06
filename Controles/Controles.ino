@@ -42,14 +42,14 @@ void setup() {
 void loop() {
   String w = "w";
   String s = "s";
-  String up = "up";
+  String u = "u";
   String down = "down";
   String pausa = "p";
   String volumen = "v";
   String color = "c";
   int estado_w = digitalRead(boton_jugador1_arriba);
   int estado_s = digitalRead(boton_jugador1_abajo);
-  int estado_up = digitalRead(boton_jugador2_arriba);
+  int estado_u = digitalRead(boton_jugador2_arriba);
   int estado_down = digitalRead(boton_jugador2_abajo);
   int estado_p = digitalRead(boton_pausa);
   int estado_v = digitalRead(boton_volumen);
@@ -63,8 +63,8 @@ void loop() {
     Serial.println(s);
     delay(40);
   }
-  if (estado_up == 0){
-    Serial.println(up);
+  if (estado_u == 0){
+    Serial.println(u);
     delay(40);
   }
   if (estado_down == 0){
