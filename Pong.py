@@ -60,6 +60,7 @@ volumen = 0
 #Iniciación de pygame
 pygame.init()
 
+#Función que lee puntuaciones de los jugadores
 def leerpuntuaciones():
     global p1
     global p2
@@ -73,7 +74,9 @@ def leerpuntuaciones():
     p3 = a.split(",")[:3]
     arch.close()
 
+#Clase posee todos los atributos y métodos para que la interfaz funcione junto a su modos de juego.
 class Juego:
+
     def __init__(self, M):
         #Se crea la matriz en el inicio de la clase, la matriz tiene solamente ceros
         self.M = M
@@ -85,6 +88,8 @@ class Juego:
     #Los datos de la matriz varían entre 0 (nada), los que inician con 1 son las barras, 11 (posición en donde rebota la bola hacia arriba), 12 (posicion en donde rebota la bola en línea recta), 13 (posicion en donde la bola rebota hacia abajo)
     #31 (limite superior de la matriz, sirve para detener las barras y que la bola rebote), 32 (limite inferior de la matriz), 2 (la bola)
     #41 (porteria del jugador 1), 42(porteria del jugador 2)
+
+    # Métodos para obtener la matriz del juego y para sobreescribirla
     def hacer_matriz(self):
         if barras == 1:
             if nivel == 1:
@@ -286,7 +291,8 @@ class Juego:
                             self.M[n][m] = 42
                         else:
                             self.M[n][m] = 0
-    #Métodos para obtener la matriz del juego y para sobreescribirla
+
+    #Método que crea obstaculos para el jugador o los jugadores
     def agregar_trampolines(self):
         if nivel == 1:
             ran1 = random.randint(6, 10)
@@ -376,6 +382,8 @@ class Juego:
             self.M[ran10 - 1][34] = 11
             self.M[ran10][34] = 12
             self.M[ran10 + 1][34] = 13
+
+    #Método  para crear un estilo de juego en el que se pueda practicar, cambiar valores predeterminados
     def modo_practica(self):
         for i in range(filas):
             self.M[i][39] = 33
@@ -388,11 +396,14 @@ class Juego:
         else:
             for i in range(11, 14):
                 self.M[i][37] = 0
+
+    #Método que retorna la matriz
     def getMatriz(self):
         return self.M
+
+    #Método que modifica la Matriz
     def setMatriz(self, nuevo):
         self.M = nuevo
-    #Método para abrir la ventana del ganador de la partida
     def cambiarColor(self):
         global color1
         global color2
@@ -411,6 +422,7 @@ class Juego:
         else:
             color1 = (0, 0, 0)
             color2 = (255, 255, 255)
+    # Método para abrir la ventana del ganador de la partida
     def ganador(self):
         #Es necesario volver a iniciar pygame porque se cerró al terminar la partida
         pygame.init()
@@ -478,6 +490,8 @@ class Juego:
         t1.start()
 
         ganador.mainloop()
+
+    #Método que sirve para que los jugadores agreguen sus iniciales
     def nuevaPuntuacion(self, tiempo):
         pygame.init()
 
@@ -589,6 +603,8 @@ class Juego:
         t1.start()
 
         nuevapunt.mainloop()
+
+    #Método que escribe el tiempo obtenido en la partida en el archivo txt
     def escribirTiempo(self, tiempo, ini1, ini2):
         global p1
         global p2
@@ -624,6 +640,8 @@ class Juego:
         arch.close()
 
         juego.menu_principal()
+
+    #Método para hacer que el juego se pueda pausar en media partida
     def pausa(self):
         global volumen
         a = False
@@ -661,6 +679,8 @@ class Juego:
                             volumen = 1
                         else:
                             volumen = 0
+
+    #Método que imprime la matriz y sus asinaciones respectivas en el juego
     def imprimirMatriz(self, M, n, i, txt, res):
         if i == (n - 1):
             res = str(M[i])
@@ -718,6 +738,7 @@ class Juego:
         bt_cerrar.place(x=1200, y=450)
 
         ventanam.mainloop()
+
     #Método para abrir la ventana del menú principal
     def menu_principal(self):
         #Se reinician las globales a sus valores originales y atributos
@@ -868,7 +889,10 @@ class Juego:
 
         # Fin del loop
         ventana.mainloop()
+
     #Funciones para iniciar los modos de juego
+
+    #Método que inicializa el modo de juego de jugador contra máquina
     def jugador_CPU(self):
         ser.write(b"0")
         global t_inicio
@@ -878,6 +902,8 @@ class Juego:
         t_inicio = time()
         barra2.setCPU(1)
         cerrar = False
+
+    # Método que inicializa el modo de juego de un jugador contra otro jugador con una sola paleta
     def jugador_singles(self):
         ser.write(b"0")
         global t_inicio
@@ -887,6 +913,8 @@ class Juego:
         t_inicio = time()
         barra2.setCPU(0)
         cerrar = False
+
+    # Método que inicializa el modo de juego de un jugador contra otro jugador con dos paletas
     def jugador_doubles(self):
         ser.write(b"0")
         global t_inicio
@@ -899,6 +927,8 @@ class Juego:
             juego.agregar_trampolines()
         t_inicio = time()
         cerrar = False
+
+    # Método que inicializa el modo de juego de un jugador para el modo práctica
     def jugador_practica(self):
         ser.write(b"0")
         global practica
@@ -911,6 +941,7 @@ class Juego:
         juego.hacer_matriz()
         juego.modo_practica()
         cerrar = False
+
     #Método para abrir la ventana que explica los modos de juego
     def ventana_modos(self):
         #Creación de la ventana y su colocación del canvas
@@ -964,8 +995,10 @@ class Juego:
                                     bg="black",
                                     fg="white")
         lb_singles.place(x=410, y=125)
+
     #Método para abrir la ventana de las instrucciones del juego
     def ventana_instrucciones(self):
+
         #Creación de la ventana y su canvas
         ventana_instrucciones = Tk()
         ventana_instrucciones.title("Intrucciones")
@@ -1019,9 +1052,13 @@ class Juego:
                                       fg="white",
                                       justify="left")
         descripcion_controles.place(x=10, y=400)
+
+    #Método para inicializar Pygame
     def encender_pygame(self):
         pygame.init()
         juego.menu_principal()
+
+    #Método que abre la ventana de módo práctica
     def ventana_practica(self):
         global Fps
         global nivel
@@ -1159,6 +1196,7 @@ class Bola:
     def __init__(self, velocidad, posicion):
         self.posicion = posicion
         self.velocidad = velocidad
+
     #Métodos para obtener y sobreescribir la velocidad y posicion de la bola en la matriz
     def getPosicion(self):
         return self.posicion
@@ -1168,6 +1206,7 @@ class Bola:
         self.posicion = nuevo
     def setVelocidad(self, nuevo):
         self.velocidad = nuevo
+
     #Método para el movimiento de la bola en la matriz, la velocidad de ella conforme avanzan niveles depende de los FPS del juego
     #La bola para moverse utilizará su posición actual, y la sumará la velocidad en fila y columna para obtener el espacio al que se moverá
     #En caso de que el espacio siguiente sea 0, avanzará
@@ -1353,6 +1392,7 @@ class Barras:
         self.niveles = nuevo
     def setCPU(self, nuevo):
         self.CPU = nuevo
+
     #Método para reaizar los movimientos manuales (no cpu) de las barras
     #Para moverse, se recibirá la tecla presionada por el usuario, (w arriba del jugador 1, s abajo del jugador 1, flecha arriba del jugador 2 y flecha abajo del jugador 2)
     #Lo que hace es que empieza a leer la columna hasta encontrar el primer elemento de la barra en ella, a partir de ahí empezará a escirbir datos en la matriz con base al índice
