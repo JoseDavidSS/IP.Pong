@@ -16,6 +16,7 @@ int p2;
 
 uint8_t note[8]  = {0x2, 0x3, 0x2, 0xe, 0x1e, 0xc, 0x0};
 
+
 void setup() {
   //inicializa la comunicacion serial
   Serial.begin(9600);
@@ -27,6 +28,8 @@ void setup() {
   pinMode(boton_volumen, INPUT_PULLUP);
   pinMode(boton_color, INPUT_PULLUP);
 
+  
+  
   //Inicializa el Arduino
   lcd.begin();
   lcd.clear();
@@ -52,21 +55,21 @@ void loop() {
   int estado_v = digitalRead(boton_volumen);
   int estado_c = digitalRead(boton_color);
   punto = Serial.read();
-  if (estado_w == 0){
+  if (estado_w == 1){
     Serial.println(w);
-    delay(40);
+    delay(45);
   }
-  if (estado_s == 0){
+  if (estado_s == 1){
     Serial.println(s);
-    delay(40);
+    delay(45);
   }
-  if (estado_up == 0){
+  if (estado_up == 1){
     Serial.println(u);
-    delay(40);
+    delay(50);
   }
-  if (estado_down == 0){
+  if (estado_down == 1){
     Serial.println(down);
-    delay(40);
+    delay(50);
   }
   if (estado_p == 0){
     Serial.println(pausa);
