@@ -1762,9 +1762,9 @@ while not cerrar:
             barra1.moverse("Arriba1")
         if (dato == "s") and juego.getMatriz()[24][2] == 32 :
             barra1.moverse("Abajo1")
-        if (dato == "up") and juego.getMatriz()[0][37] == 31 and barra2.getCPU() == 0 and practica != 1:
+        if (dato == "u") and juego.getMatriz()[0][37] == 31 and barra2.getCPU() == 0 and practica != 1:
             barra2.moverse("Arriba2")
-        if (dato == "down") and  juego.getMatriz()[24][37] == 32 and barra2.getCPU() == 0 and practica != 1:
+        if (dato == "down") and juego.getMatriz()[24][37] == 32 and barra2.getCPU() == 0 and practica != 1:
             barra2.moverse("Abajo2")
         if (dato == "p"):
             if volumen == 0:

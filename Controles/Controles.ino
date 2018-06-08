@@ -16,7 +16,6 @@ int p2;
 
 uint8_t note[8]  = {0x2, 0x3, 0x2, 0xe, 0x1e, 0xc, 0x0};
 
-
 void setup() {
   //inicializa la comunicacion serial
   Serial.begin(9600);
@@ -28,8 +27,6 @@ void setup() {
   pinMode(boton_volumen, INPUT_PULLUP);
   pinMode(boton_color, INPUT_PULLUP);
 
-  
-  
   //Inicializa el Arduino
   lcd.begin();
   lcd.clear();
