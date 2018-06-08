@@ -16,6 +16,7 @@ int p2;
 
 uint8_t note[8]  = {0x2, 0x3, 0x2, 0xe, 0x1e, 0xc, 0x0};
 
+
 void setup() {
   //inicializa la comunicacion serial
   Serial.begin(9600);
@@ -27,14 +28,13 @@ void setup() {
   pinMode(boton_volumen, INPUT_PULLUP);
   pinMode(boton_color, INPUT_PULLUP);
 
-  lcd.createChar(1, note);
+  
+  
   //Inicializa el Arduino
   lcd.begin();
   lcd.clear();
   lcd.print("     ");
-  lcd.write(1);
-  lcd.print("PONG");
-  lcd.write(1);
+  lcd.print("!PONG!");
   lcd.setCursor(0, 1);
   lcd.print("Elije un modo!!!");
   }
@@ -42,7 +42,7 @@ void setup() {
 void loop() {
   String w = "w";
   String s = "s";
-  String up = "up";
+  String u = "u";
   String down = "down";
   String pausa = "p";
   String volumen = "v";
@@ -64,7 +64,7 @@ void loop() {
     delay(40);
   }
   if (estado_up == 0){
-    Serial.println(up);
+    Serial.println(u);
     delay(40);
   }
   if (estado_down == 0){
@@ -73,23 +73,19 @@ void loop() {
   }
   if (estado_p == 0){
     Serial.println(pausa);
-    delay(150);
+    delay(300);
   }
   if (estado_v == 0){
     Serial.println(volumen);
-    delay(150);
+    delay(300);
   }
   if (estado_c == 0){
     Serial.println(color);
-    delay(150);
+    delay(300);
   }
   if (punto == 90){
     lcd.clear();
-    lcd.write(1);
-    lcd.write(1);
-    lcd.print("Felicidades");
-    lcd.write(1);
-    lcd.write(1);
+    lcd.print("!!Felicidades!!");
     }
   if (punto == 48){
     lcd.clear();
