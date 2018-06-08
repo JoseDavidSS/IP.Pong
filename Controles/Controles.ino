@@ -29,7 +29,7 @@ void setup() {
 
   lcd.createChar(1, note);
   //Inicializa el Arduino
-  lcd.begin()
+  lcd.begin();
   lcd.clear();
   lcd.print("     ");
   lcd.write(1);
